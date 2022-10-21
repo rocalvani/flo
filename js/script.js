@@ -87,14 +87,6 @@ for(let i=0; i<1; i++) {
 
 // FUNCION
 
-let precio = manzanilla.precio;
-
-function conIva() {
-  console.log("el precio total es:" + ((precio * 21) / 100 + precio));
-}
-
-conIva();
-
 function seleccion(flor) {
   console.log("usted eligió una" + flor);
 }
@@ -165,3 +157,11 @@ producto1.sumaIva();
 console.log(producto1.precio);
 producto1.vender();
 console.log(producto1.stock);
+
+let precio = manzanilla.precio;
+
+function conIva() {
+  console.log("el precio total es:" + ((precio * 21) / 100 + precio));
+}
+
+conIva();
