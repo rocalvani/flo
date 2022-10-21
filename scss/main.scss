@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
+@font-face {
+  font-family: mirra;
+  src: url(../font/Mirra.otf);
+}
+
+.body {
+  background-color: #f0f1ed;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: poppins;
+}
+
+.main {
+  &__img {
+    overflow: hidden;
+  }
+  &__wrapper {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    video {
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  &__intro {
+    position: relative;
+    color: white;
+    padding: 2rem;
+  }
+  &__animated {
+    height: 25vh;
+    padding: 2rem;
+    font-size: 20vh;
+    overflow: hidden;
+    border-bottom: 1px solid #bccac7;
+    font-family: mirra;
+  }
+  &__cardsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  &__card {
+    img {
+      width: 30%;
+    }
+  }
+  &__create {
+    padding: 2rem;
+    border: 1px solid #bccac7;
+  }
+  &__contact {
+    display: flex;
+    flex-direction: column;
+  }
+  &__contactForm {
+    background-color: pink;
+    padding: 2rem;
+    height: 50vh;
+  }
+  &__map {
+    filter:grayscale(100);
+    height: 50vh;
+  }
+}
+
+
+.main__storeGrid {  display: grid;
+    grid-template-columns: 33.3vw 33.3vw 33.3vw;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    align-content: center;
+    align-items: stretch;
+    grid-template-areas:
+      "main__e01 main__e02 main__e02"
+      "main__e03 main__e02 main__e02"
+      "main__e04 main__e05 main__e06"
+      "main__e07 main__e07 main__e08"
+      "main__e07 main__e07 main__e09";
+  }
+  
+  .main__e01 { grid-area: main__e01;
+background-color: red;}
+  
+  .main__e02 { grid-area: main__e02;
+background-color: pink; }
+  
+  .main__e03 { grid-area: main__e03; 
+background-color: purple;}
+  
+  .main__e04 { grid-area: main__e04;
+background-color: cyan; }
+  
+  .main__e05 { grid-area: main__e05;
+background-color: orange; }
+  
+  .main__e06 { grid-area: main__e06; 
+background-color: yellow;}
+  
+  .main__e07 { grid-area: main__e07; 
+background-color: blue;}
+  
+  .main__e08 { grid-area: main__e08;
+background-color: magenta; }
+  
+  .main__e09 { grid-area: main__e09; 
+background-color: darkcyan;}
+  
+@media (min-width: 992px) {
+
+  .header {
+    font-size: 1rem;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 1;
+    width: 100%;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.253);
+    border-bottom: 1px solid white;
+    img { 
+      height: 4rem;}
+      &__button {
+        padding-right: 6rem;
+        border-radius: 100%;
+        width:2rem;
+        height: 2rem;
+        text-align:center;
+      }
+    
+  }
+  .navbar-brand {
+    padding: 1rem 5rem;
+  }
+  
+  .main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    &__intro {
+      width: 100%;
+      padding: 60vh 6rem 0vh 6rem;
+      font-size: 10vh;
+      p {
+        font-size: 2vh;
+        width: 40%;
+      }
+    }
+    &__cardsContainer {
+      flex-flow: row wrap;
+      :nth-child(3) {
+        width: 34%;
+      }
+    }
+    &__card {
+      width: 33%;
+      border:0;
+    }
+    &__cardContent {
+      min-height: 35vh;
+      padding: 3rem;
+      border: 1px solid #bccac7;
+
+    }
+    &__create {
+      font-size: 5vh;
+      padding: 3rem;
+    }
+    &__contact {
+      display: flex;
+      flex-flow: row wrap;
+    }
+    &__contactForm {
+      width: 50%;
+      padding: 0;
+    }
+    &__map {
+      width: 50%;
+      background-color: black;
+      height: 50vh;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+
+}
