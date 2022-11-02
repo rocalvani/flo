@@ -1,12 +1,166 @@
+// STORE 
+class Planta {
+  constructor(nombre, precio, stock, tipo, lugar) {
+    this.nombre = nombre;
+    this.precio = parseInt(precio);
+    this.stock = stock;
+    this.tipo = tipo;
+    this.lugar = lugar;
+  }
+  sumaIva( ) {
+    this.precio = this.precio *1.21;
+    console.log(this.precio);
+  }
+  sinStock (){
+    if (this.stock == 0) {
+      console.log("Este producto no tiene stock.")
+    } else {
+      console.log("Puede agregarlo al carrito.")
+    }
+  }
+}
+
+const plantas =[];
+plantas.push (new Planta ("alocacia", 1800, 25,"perenne", "interior"));
+plantas.push (new Planta ("hoya pack", 3000, 1,"perenne", "interior" ));
+plantas.push (new Planta ("margarita", 800, 35, "perenne", "exterior"));
+plantas.push (new Planta ("salvia", 500, 30, "perenne", "exterior"));
+plantas.push (new Planta ("nanouk", 1800, 7, "perenne", "interior"));
+plantas.push (new Planta ("ave del paraíso", 1800, 10, "perenne", "exterior"));
+plantas.push (new Planta ("hierba mariposa", 2500, 0, "perenne", "exterior"));
+plantas.push (new Planta ("geranio", 800, 23, "perenne", "exterior"));
+plantas.push (new Planta ("marimonia", 350, 35, "época", "exterior"));
+
+for (const Planta of plantas){
+  Planta.sumaIva();
+  Planta.sinStock();
+}
+
+const perenne = plantas.filter((el) => el.tipo.includes("perenne"));
+const epoca = plantas.filter((el) => el.tipo.includes("época" || "epoca"));
+const interior = plantas.filter((el) => el.lugar.includes("interior"));
+const exterior = plantas.filter((el) => el.lugar.includes("exterior"));
+
+console.log(exterior);
+
+// RAMOS
+class Flor{
+  constructor (nombre, color, precio){
+    this.nombre = nombre;
+    this.color = color;
+    this.precio = precio;
+  }
+}
+
+const ramo =[];
+ramo.push (new Flor ("rosa", "negro, rosa, rojo, amarillo, blanco", 1000));
+ramo.push (new Flor ("fresia", "rosa, rojo, amarillo, violeta, naranja", 200));
+ramo.push (new Flor ("jazmín", "blanco", 700));
+ramo.push (new Flor ("margarita", "blanco, amarillo, azul", 400));
+ramo.push (new Flor ("lilium", "rojo, blanco, amarillo, rosa", 1500));
+ramo.push (new Flor ("manzanilla", "blanco", 200));
+ramo.push (new Flor("crisantemo", "blanco, rosa, violeta, rojo, amarillo", 150));
+
+
+ let ramoColor = prompt("¿Qué color querés en tu ramo?");
+ let florElegir = prompt("Elegí una flor");
+
+ let elegida = ramo.find((el) => el.nombre.includes(florElegir));
+ console.log(elegida);
+
+ let elegidaIndex = ramo.indexOf(elegida);
+ console.log(elegidaIndex);
+
+switch (ramoColor) {
+  case "azul":
+    console.log("elegiste el color" + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
+    break;
+  case "rojo":
+    console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
+    break;
+    case "violeta":
+      console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
+    break;
+    case "blanco":
+      console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
+    break;
+    case "amarillo":
+    console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
+    break;
+    case "rosa":
+      console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
+    break;
+    case "naranja":
+      console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
+    break;
+    case "negro":
+      console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
+    break;
+  default:
+    if (ramoColor="") {
+      prompt("Por favor, no dejes este espacio vacío. ¿Qué color querés en tu ramo?")
+    }else {
+      alert("No elegiste un color válido.")
+    }
+    break;
+}
+
+let ramoCompleto = [];
+function armar(a){
+  ramoCompleto.push(ramo[a]);
+}
+
+armar(elegidaIndex);
+console.log(ramoCompleto);
+
+const ramoPrecio = ramoCompleto.map((el) => el.precio);
+const total = ramoPrecio.reduce((a, b) => a + b, 0);
+
+console.log("el total a pagar es " + total);
+
+
+// CARRITO
+let carrito = [];
+
+let agregarProducto = prompt("ingrese un producto 0 - alocacia 1- hoya pack 2- margarita 3 - salvia 4 - nanouk")
+
+function comprar(producto){
+    carrito.push(plantas[producto]);
+}
+
+function comprarRamo(a){
+  carrito.push(a);
+}
+
+comprar(agregarProducto);
+comprarRamo(ramoCompleto);
+console.log(carrito);
+
+let carritoLleva = carrito.join(" , ");
+console.log(carritoLleva);
+console.log("Los productos en tu carrito son" + carritoLleva);
+
+const carritoTotal = carrito.map((el) => el.precio);
+const cuenta = carritoTotal.reduce ((a, b) => a + b, 0);
+
+console.log("el total a pagar es " + cuenta);
+
+
+// DESCUENTOS 
+
+let precioTotal = total;
+let codigo = prompt("Ingrese el código de descuento");
+
+if (codigo == "FLO615V") {
+  console.log("Se aplicó un 15% de descuento en tu compra.")
+  let precioTotal = (precioTotal * 15) /100;
+} else {
+  console.log ("El código aplicado no existe.")
+}
+
+console.log(precioTotal);
+
 // // CONDICIONALES
-
-// let color = prompt("Elegí un color");
-
-// if (color) {
-//   console.log("Elegiste el color " + color);
-// } else {
-//   alert("No elegiste ningún color");
-// }
 
 // let cantidadFlores = Number(prompt("¿Cuántas flores llevás?"));
 
@@ -28,53 +182,6 @@
 //   alert("Tu pedido está incompleto");
 // }
 
-// // CICLO
-
-// let ramoColor = prompt("¿Qué color NO querés en tu ramo?");
-
-// switch (ramoColor) {
-//   case "azul":
-//     console.log("elegiste el color" + ramoColor);
-//     break;
-//   case "rojo":
-//     console.log("elegiste el color " + ramoColor);
-//     break;
-//     case "violeta":
-//       console.log("elegiste el color " + ramoColor);
-//     break;
-//     case "blanco":
-//       console.log("elegiste el color " + ramoColor);
-//     break;
-//     case "amarillo":
-//     console.log("elegiste el color " + ramoColor);
-//     break;
-//     case "rosa":
-//       console.log("elegiste el color " + ramoColor);
-//     break;
-//     case "naranja":
-//       console.log("elegiste el color " + ramoColor);
-//     break;
-//     case "negro":
-//       console.log("elegiste el color " + ramoColor);
-//     break;
-//   default:
-//     if (ramoColor="") {
-//       alert("¿Estás seguro de querer todos los colores?")
-//     }else {
-//       alert("No elegiste un color válido.")
-//     }
-//     break;
-// }
-
-// let carrito = 0;
-// let agregar = Number(prompt("¿Cuántos quiere agregar al carrito?"));
-
-// do {
-//   let total = carrito + agregar;
-//   console.log("Usted tiene " + total + "productos en el carrito");
-// } while ((carrito + agregar) < 3);
-
-
 // for(let i=0; i<1; i++) {
 //   mensaje = prompt("Ingrese un mensaje para la tarjeta del ramo.");
 //   if (mensaje=="") {
@@ -82,100 +189,7 @@
 //   } else{
 //     console.log("ingresaste un mensaje existosamente.");
 //   }
-  
-// }
 
-// // FUNCION
-
-// function seleccion(flor) {
-//   console.log("usted eligió una" + flor);
-// }
-
-// let flor = prompt("elija una flor");
-// seleccion(flor);
-
-// let cantidad01 = prompt("elija la cantidad de" + flor);
-// let cantidad02 = prompt("elija la cantidad de rosas");
-
-// const suma = (cantidad01, cantidad02) => {return cantidad01 + cantidad02;}
-
-// let ramoCompleto = suma(cantidad01, cantidad02);
-// console.log("está llevando: " + ramoCompleto + "flores");
-
-// // OBJETOS
-
-// const manzanilla = {
-//   flor: "manzanilla",
-//   color: "blanco",
-//   stock: 57,
-//   precio: 125,
-// };
-
-// console.log(manzanilla);
-// console.log(manzanilla.precio);
-
-// manzanilla.stock = 0;
-
-// if (manzanilla.stock == 0) {
-//   alert("este producto está sin stock.");
-// }
-
-// function Producto(flor, color, stock, precio) {
-//   this.flor = flor;
-//   this.color = color;
-//   this.stock = stock;
-//   this.precio = precio;
-
-//   this.hablar = function () {
-//     console.log("esto es" + this.flor);
-//   };
-// }
-
-// const Producto001 = new Producto("lavanda", "lavanda", 595, 225);
-
-// console.log(Producto001);
-
-// Producto001.hablar();
-
-// class Flor {
-//   constructor(nombre, precio) {
-//     this.nombre = nombre.toUpperCase();
-//     this.precio = parseFloat(precio);
-//     this.stock = false;
-//   }
-//   sumaIva() {
-//     this.precio = this.precio * 1.21;
-//   }
-//   vender() {
-//     this.stock = true;
-//   }
-// }
-// const producto1 = new Flor("lavanda", "125");
-
-// console.log(producto1.precio);
-// producto1.sumaIva();
-// console.log(producto1.precio);
-// producto1.vender();
-// console.log(producto1.stock);
-
-// // OBJETO CON FUNCION DE IVA
-
-// let precio = manzanilla.precio;
-
-// function conIva() {
-//   console.log("el precio total es:" + ((precio * 21) / 100 + precio));
-// }
-
-// conIva();
-
-// //ARRAYS 
-
-// let nombres = ["rosa", "lila", "lavanda", "marimonia"]
-
-// console.log(nombres[1]);
-
-// for(let i=0; i<nombres.length; i++) {
-//   console.log (nombres[i]);
 // }
 
 // let colores =[];
@@ -183,5 +197,3 @@
 // for(let i=0; i<3; i++) {
 //   colores[i] =prompt("ingrese un color");
 // }
-
-
