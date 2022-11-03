@@ -39,26 +39,72 @@
   .main__intro--create {
     padding: 0; }
 
-.main__animated {
-  height: 25vh;
-  padding: 2rem;
-  font-size: 20vh;
-  overflow: hidden;
-  border-bottom: 1px solid #bccac7;
-  font-family: mirra; }
-
 .main__cardsContainer {
   display: flex;
   flex-direction: column; }
 
-.main__card img {
-  width: 30%; }
+.main__card {
+  background-color: white; }
+  .main__card img {
+    width: 50%;
+    margin-bottom: 2rem; }
 
 .main__create {
   padding: 2rem;
-  border: 1px solid #bccac7;
+  background-image: url(../img/pexels-photo-4210804.jpeg);
+  background-size: cover;
+  height: 100vh;
   font-family: mirra;
   line-height: 3rem; }
+
+.main__news {
+  font-family: mirra;
+  text-transform: uppercase;
+  padding: 3rem 6rem;
+  font-size: 10rem;
+  position: relative;
+  height: 100vh; }
+
+.main__newsGrid {
+  position: absolute;
+  width: 70%;
+  height: auto;
+  top: 20%;
+  left: 15%;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2rem;
+  grid-template-areas: "main__store01 main__store02 main__store05 main__store05" "main__store03 main__store04 main__store05 main__store05";
+  align-content: center;
+  align-items: stretch; }
+
+.main__store01 {
+  grid-area: main__store01;
+  background-color: yellow;
+  aspect-ratio: 1 / 1; }
+
+.main__store02 {
+  grid-area: main__store02;
+  background-color: yellow;
+  aspect-ratio: 1 / 1; }
+
+.main__store03 {
+  grid-area: main__store03;
+  background-color: yellow;
+  aspect-ratio: 1 / 1; }
+
+.main__store04 {
+  grid-area: main__store04;
+  background-color: yellow;
+  aspect-ratio: 1 / 1; }
+
+.main__store05 {
+  grid-area: main__store05;
+  background-color: yellow;
+  aspect-ratio: 1 / 1; }
 
 .main__contact {
   display: flex;
@@ -154,7 +200,8 @@
     width: 100%;
     color: white;
     background-color: rgba(255, 255, 255, 0.253);
-    border-bottom: 1px solid white; }
+    border-bottom: 1px solid white;
+    padding: 0; }
     .header img {
       height: 2rem; }
     .header__button {
@@ -182,22 +229,42 @@
       align-items: center; }
       .main__intro--desc {
         text-align: left;
-        font-size: 1.3rem;
+        font-size: 1rem;
         padding: 0; }
+        .main__intro--desc button {
+          aspect-ratio: 1/1;
+          padding: 1rem;
+          background-color: transparent;
+          border: 1px solid white;
+          border-radius: 100%;
+          vertical-align: middle;
+          margin-right: 1rem; }
       .main__intro--create {
         text-align: right;
-        font-size: 1.3rem; }
+        font-size: 1rem; }
+        .main__intro--create button {
+          aspect-ratio: 1/1;
+          padding: 1rem;
+          background-color: transparent;
+          border: 1px solid white;
+          border-radius: 100%;
+          vertical-align: middle;
+          margin-left: 1rem; }
     .main__cardsContainer {
-      flex-flow: row wrap; }
+      flex-flow: row wrap;
+      padding: 6rem; }
       .main__cardsContainer :nth-child(3) {
         width: 34%; }
     .main__card {
-      width: 33%;
-      border: 0; }
+      width: 31%;
+      border: 0;
+      min-height: 10vh;
+      border: 1px solid #bccac7;
+      margin: 0rem 0.5%; }
     .main__cardContent {
       min-height: 35vh;
       padding: 3rem;
-      border: 1px solid #bccac7; }
+      font-size: 0.9rem; }
     .main__create {
       font-size: 5vh;
       padding: 3rem 6rem; }
@@ -210,7 +277,7 @@
     .main__map {
       width: 50%;
       background-color: black;
-      height: 50vh; }
+      height: 70vh; }
     .main__grid {
       width: 86%;
       margin: auto;
@@ -232,4 +299,21 @@
         background-color: blue; }
       .main__grid--e03 {
         grid-area: main__e03;
-        background-color: green; } }
+        background-color: green; }
+  .create__container {
+    height: 100vh;
+    padding: 6rem;
+    display: flex; }
+  .create__title {
+    width: 25vh;
+    font-family: mirra;
+    text-transform: uppercase;
+    font-size: 6rem;
+    line-height: 6rem; }
+  .create__img {
+    width: 50%;
+    text-align: center; }
+    .create__img img {
+      width: 50%; }
+  .create__settings {
+    width: 25%; } }
