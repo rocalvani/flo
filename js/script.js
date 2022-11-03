@@ -71,33 +71,52 @@ ramo.push (new Flor("crisantemo", "blanco, rosa, violeta, rojo, amarillo", 150))
  let elegidaIndex = ramo.indexOf(elegida);
  console.log(elegidaIndex);
 
+ let seleccion = document.getElementById("seleccion");
+
+
 switch (ramoColor) {
   case "azul":
     console.log("elegiste el color" + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
+    seleccion.innerHTML="<img src='../img/clipart1686103.png'>";
+
     break;
   case "rojo":
     console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
+    seleccion.innerHTML="<img src='../img/clipart2751895.png'>";
+
     break;
     case "violeta":
       console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
-    break;
+      seleccion.innerHTML="<img src='../img/clipart1686103.png'>";
+    
+      break;
     case "blanco":
       console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
-    break;
+      seleccion.innerHTML="<img src='../img/clipart2751895.png'>";
+   
+      break;
     case "amarillo":
     console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
+    seleccion.innerHTML="<img src='../img/clipart940165.png'>";
+   
     break;
     case "rosa":
       console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
-    break;
+      seleccion.innerHTML="<img src='../img/clipart940165.png'>";
+    
+      break;
     case "naranja":
       console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
-    break;
+      seleccion.innerHTML="<img src='../img/clipart940165.png'>";
+    
+      break;
     case "negro":
       console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
-    break;
+      seleccion.innerHTML="<img src='../img/clipart1686103.png'>";
+    
+      break;
   default:
-    if (ramoColor="") {
+    if (ramoColor=" ") {
       prompt("Por favor, no dejes este espacio vacío. ¿Qué color querés en tu ramo?")
     }else {
       alert("No elegiste un color válido.")
@@ -159,6 +178,7 @@ if (codigo == "FLO615V") {
 }
 
 console.log(precioTotal);
+
 
 // // CONDICIONALES
 
