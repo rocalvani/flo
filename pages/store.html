@@ -1,19 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="../css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="../css/style.css" />
     <title>Document</title>
-</head>
-<body class="body">
-    <header></header>
-    <main class="main">
+  </head>
+  <body class="body">
+    <!-- Encabezado -->
+    <header class="header">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../index.html"
+            ><img src="../img/logo.svg" alt=""
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="../pages/store.html">store</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../pages/create.html">creá tu ramo</a>
+              </li>
+            </ul>
+            <button class="header__button">carrito</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+   
+      <main class="main">
+        <section class="store__main">store</section>
+        <nav>
+            <input type="text" name="realizá una búsqueda" id="">
+            <input type="submit" value="buscar">
+        </nav>
         <section class="main__img"></section>
         <section class="main__slider"></section>
-        <section class="main__storeGrid">
+        <section class="main__storeCont">
+            <div class="main__storeGrid">
             <article class="main__e01">blip</article>
             <article class="main__e02">blop</article>
             <article class="main__e03">blip</article>
@@ -22,10 +67,36 @@
             <article class="main__e06"></article>
             <article class="main__e07"></article>
             <article class="main__e08"></article>
-            <article class="main__e09"></article>
+            <article class="main__e09"></article></div>
         </section>
     </main>
-<footer></footer>
-    <script src="../js/script.js"></script>
+
+    <footer class="footer">
+        <div class="footer__nav">
+          navigation
+          <ul>
+            <li>home</li>
+            <li>catalogo</li>
+            <li>crea tu ramo</li>
+            <li>contacto</li>
+          </ul>
+        </div>
+        <div class="footer__cat">
+          catalogo
+          <ul>
+            <li>de interior</li>
+            <li>perennes</li>
+            <li>con flor</li>
+            <li>con fruto</li>
+          </ul>
+        </div>
+        <div class="footer__sns">redes</div>
+      </footer>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"
+      ></script>
+      <script src="../js/script.js"></script>
 </body>
 </html>
