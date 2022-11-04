@@ -41,6 +41,9 @@ const epoca = plantas.filter((el) => el.tipo.includes("época" || "epoca"));
 const interior = plantas.filter((el) => el.lugar.includes("interior"));
 const exterior = plantas.filter((el) => el.lugar.includes("exterior"));
 
+const found = plantas.find(((el) => el.tipo === "época"));
+
+console.log(found);
 console.log(exterior);
 
 // RAMOS
@@ -61,6 +64,7 @@ ramo.push (new Flor ("lilium", "rojo, blanco, amarillo, rosa", 1500));
 ramo.push (new Flor ("manzanilla", "blanco", 200));
 ramo.push (new Flor("crisantemo", "blanco, rosa, violeta, rojo, amarillo", 150));
 
+ramo.forEach(el => console.log(el.precio * 1.21));
 
  let ramoColor = prompt("¿Qué color querés en tu ramo?");
  let florElegir = prompt("Elegí una flor");
@@ -133,6 +137,7 @@ armar(elegidaIndex);
 console.log(ramoCompleto);
 
 const ramoPrecio = ramoCompleto.map((el) => el.precio);
+console.log(ramoPrecio);
 const total = ramoPrecio.reduce((a, b) => a + b, 0);
 
 console.log("el total a pagar es " + total);
@@ -141,44 +146,53 @@ console.log("el total a pagar es " + total);
 // CARRITO
 let carrito = [];
 
-let agregarProducto = prompt("ingrese un producto 0 - alocacia 1- hoya pack 2- margarita 3 - salvia 4 - nanouk")
+let agregarProducto = prompt("ingrese un producto 0 - alocacia 1- hoya pack 2- margarita 3 - salvia 4 - nanouk") 
 
 function comprar(producto){
     carrito.push(plantas[producto]);
 }
-
-function comprarRamo(a){
-  carrito.push(a);
-}
-
 comprar(agregarProducto);
-comprarRamo(ramoCompleto);
-console.log(carrito);
 
-let carritoLleva = carrito.join(" , ");
-console.log(carritoLleva);
-console.log("Los productos en tu carrito son" + carritoLleva);
+const conRamo = carrito.concat(ramoCompleto);
 
-const carritoTotal = carrito.map((el) => el.precio);
-const cuenta = carritoTotal.reduce ((a, b) => a + b, 0);
+const conRamoTotal = conRamo.map((el) => el.precio);
+const precioTotal = conRamoTotal.reduce((a, b) => a + b, 0);
 
-console.log("el total a pagar es " + cuenta);
+const conRamoLista = conRamo.map((el) => el.nombre);
+console.log(conRamoLista);
+
+console.log("el total a pagar es " + precioTotal);
 
 
 // DESCUENTOS 
 
-let precioTotal = total;
 let codigo = prompt("Ingrese el código de descuento");
 
 if (codigo == "FLO615V") {
-  console.log("Se aplicó un 15% de descuento en tu compra.")
-  let precioTotal = (precioTotal * 15) /100;
+  console.log("Se aplicó un 15% de descuento en tu compra.");
+  let precioFinal = parseInt(((precioTotal * 15) /100) + precioTotal);
+  console.log(precioFinal);
 } else {
-  console.log ("El código aplicado no existe.")
+  console.log ("El código aplicado no existe. El precio total es " + precioTotal);
 }
 
-console.log(precioTotal);
+// CUOTAS
+let cuotas = Number(prompt("¿En cuantas cuotas abona? 6, 12, o 24."))
 
+switch (cuotas) {
+  case 6:
+    console.log("Usted abonará en " + cuotas + " cuotas y el total será " + (precioTotal / 6) + " por cuota.")
+    break;
+    case 12:
+    console.log("Usted abonará en " + cuotas + " cuotas y el total será " + (precioTotal / 12) + " por cuota.")
+    break;
+    case 24:
+    console.log("Usted abonará en " + cuotas + " cuotas y el total será " + (precioTotal / 24) + " por cuota.")
+    break;
+    default: 
+    console.log("Usted abonará en un pago, el total de " + precioTotal);
+    break;
+}
 
 // // CONDICIONALES
 
