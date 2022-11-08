@@ -84,27 +84,32 @@
 .main__store01 {
   grid-area: main__store01;
   background-color: yellow;
-  aspect-ratio: 1 / 1; }
+  aspect-ratio: 1 / 1;
+  position: relative; }
 
 .main__store02 {
   grid-area: main__store02;
   background-color: yellow;
-  aspect-ratio: 1 / 1; }
+  aspect-ratio: 1 / 1;
+  position: relative; }
 
 .main__store03 {
   grid-area: main__store03;
   background-color: yellow;
-  aspect-ratio: 1 / 1; }
+  aspect-ratio: 1 / 1;
+  position: relative; }
 
 .main__store04 {
   grid-area: main__store04;
   background-color: yellow;
-  aspect-ratio: 1 / 1; }
+  aspect-ratio: 1 / 1;
+  position: relative; }
 
 .main__store05 {
   grid-area: main__store05;
   background-color: yellow;
-  aspect-ratio: 1 / 1; }
+  aspect-ratio: 1 / 1;
+  position: relative; }
 
 .main__contact {
   display: flex;
@@ -328,3 +333,23 @@
       width: 50%; }
   .create__settings {
     width: 25%; } }
+
+.add {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: center;
+  background-color: black;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+  .add__price {
+    width: 10%;
+    font-size: 0.6rem; }
+  .add__cart {
+    background-color: white;
+    aspect-ratio: 1/1;
+    border: 1px solid black;
+    font-size: 0.5rem;
+    border-radius: 100%; }
