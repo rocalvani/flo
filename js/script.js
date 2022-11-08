@@ -50,23 +50,21 @@ console.log(exterior);
 class Flor {
   constructor(nombre, color, precio) {
     this.nombre = nombre;
-    this.color = color;
     this.precio = precio;
   }
 }
 
 const ramo = [];
-ramo.push(new Flor("rosa", "negro, rosa, rojo, amarillo, blanco", 1000));
-ramo.push(new Flor("fresia", "rosa, rojo, amarillo, violeta, naranja", 200));
-ramo.push(new Flor("jazmín", "blanco", 700));
-ramo.push(new Flor("margarita", "blanco, amarillo, azul", 400));
-ramo.push(new Flor("lilium", "rojo, blanco, amarillo, rosa", 1500));
-ramo.push(new Flor("manzanilla", "blanco", 200));
-ramo.push(new Flor("crisantemo", "blanco, rosa, violeta, rojo, amarillo", 150));
+ramo.push(new Flor("rosa", 1000));
+ramo.push(new Flor("fresia", 200));
+ramo.push(new Flor("jazmín", 700));
+ramo.push(new Flor("margarita", 400));
+ramo.push(new Flor("lilium", 1500));
+ramo.push(new Flor("manzanilla", 200));
+ramo.push(new Flor("crisantemo", 150));
 
 ramo.forEach((el) => console.log(el.precio * 1.21));
 
-//  let ramoColor = prompt("¿Qué color querés en tu ramo?");
 //  let florElegir = prompt("Elegí una flor");
 
 //  let elegida = ramo.find((el) => el.nombre.includes(florElegir));
