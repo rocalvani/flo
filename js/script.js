@@ -48,7 +48,7 @@ console.log(exterior);
 
 // RAMOS
 class Flor {
-  constructor(nombre, color, precio) {
+  constructor(nombre, precio) {
     this.nombre = nombre;
     this.precio = precio;
   }
@@ -63,10 +63,10 @@ ramo.push(new Flor("lilium", 1500));
 ramo.push(new Flor("manzanilla", 200));
 ramo.push(new Flor("crisantemo", 150));
 
-ramo.forEach((el) => console.log(el.precio * 1.21));
-
-//  let florElegir = prompt("Elegí una flor");
-
+let ramoCompleto = [];
+const ramoPrecio = ramoCompleto.map((el) => el.precio);
+console.log(ramoPrecio);
+const total = ramoPrecio.reduce((a, b) => a + b, 0);
 //  let elegida = ramo.find((el) => el.nombre.includes(florElegir));
 //  console.log(elegida);
 
@@ -86,89 +86,39 @@ for (florBoton[i]; i < florBoton.length; i++) {
     switch (caso) {
       case "rosa":
         seleccion.innerHTML = "<img src='../img/PngItem_332482.png'>";
+        ramoCompleto.push(ramo[0]);
+        console.log(ramoCompleto);
         break;
       case "fresia":
         seleccion.innerHTML = "<img src='../img/pngegg.png'>";
+        ramoCompleto.push(ramo[1]);
+        console.log(ramoCompleto);
         break;
         case "jazmin":
           seleccion.innerHTML = "<img src='../img/jazmin.png'>";
+          ramoCompleto.push(ramo[2]);
+          console.log(ramoCompleto);
           break;
           case "lilium":
             seleccion.innerHTML = "<img src='../img/lilium.png'>";
+            ramoCompleto.push(ramo[3]);
+            console.log(ramoCompleto);
             break;
             case "manzanilla":
               seleccion.innerHTML = "<img src='../img/pngegg.png'>";
+              ramoCompleto.push(ramo[4]);
+              console.log(ramoCompleto);
               break;
               case "crisantemo":
                 seleccion.innerHTML = "<img src='../img/crisantemo.png'>";
+                ramoCompleto.push(ramo[5]);
+                console.log(ramoCompleto);
+                console.log(ramoPrecio);
                 break;
     }
   }
+  console.log(ramoPrecio);
 }
-
-// switch (ramoColor) {
-//   case "azul":
-//     console.log("elegiste el color" + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
-//     seleccion.innerHTML="<img src='../img/clipart1686103.png'>";
-
-//     break;
-//   case "rojo":
-//     console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
-//     seleccion.innerHTML="<img src='../img/clipart2751895.png'>";
-
-//     break;
-//     case "violeta":
-//       console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
-//       seleccion.innerHTML="<img src='../img/clipart1686103.png'>";
-
-//       break;
-//     case "blanco":
-//       console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
-//       seleccion.innerHTML="<img src='../img/clipart2751895.png'>";
-
-//       break;
-//     case "amarillo":
-//     console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
-//     seleccion.innerHTML="<img src='../img/clipart940165.png'>";
-
-//     break;
-//     case "rosa":
-//       console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
-//       seleccion.innerHTML="<img src='../img/clipart940165.png'>";
-
-//       break;
-//     case "naranja":
-//       console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
-//       seleccion.innerHTML="<img src='../img/clipart940165.png'>";
-
-//       break;
-//     case "negro":
-//       console.log("elegiste el color " + ramoColor + "para tu" + ramo[elegidaIndex].nombre);
-//       seleccion.innerHTML="<img src='../img/clipart1686103.png'>";
-
-//       break;
-//   default:
-//     if (ramoColor=" ") {
-//       prompt("Por favor, no dejes este espacio vacío. ¿Qué color querés en tu ramo?")
-//     }else {
-//       alert("No elegiste un color válido.")
-//     }
-//     break;
-// }
-
-let ramoCompleto = [];
-function armar(a) {
-  ramoCompleto.push(ramo[a]);
-}
-
-armar(elegidaIndex);
-console.log(ramoCompleto);
-
-const ramoPrecio = ramoCompleto.map((el) => el.precio);
-console.log(ramoPrecio);
-const total = ramoPrecio.reduce((a, b) => a + b, 0);
-
-console.log("el total a pagar es " + total);
 
 // CARRITO
 let carrito = [];

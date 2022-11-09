@@ -62,22 +62,21 @@
   text-transform: uppercase;
   padding: 3rem 6rem;
   font-size: 10rem;
-  position: relative;
-  height: 100vh; }
+  position: relative; }
 
 .main__newsGrid {
-  position: absolute;
+  top: -7rem;
+  position: relative;
   width: 70%;
   height: auto;
-  top: 20%;
   left: 15%;
   display: grid;
   grid-auto-columns: 1fr;
   grid-auto-rows: 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   gap: 2rem;
-  grid-template-areas: "main__store01 main__store02 main__store05 main__store05" "main__store03 main__store04 main__store05 main__store05";
+  grid-template-areas: "main__store01 main__store02 main__store03 main__store03" "main__store04 main__store05 main__store03 main__store03" "main__store06 main__store06 main__store07 main__store08" "main__store06 main__store06 main__store09 main__store10";
   align-content: center;
   align-items: stretch; }
 
@@ -107,6 +106,36 @@
 
 .main__store05 {
   grid-area: main__store05;
+  background-color: yellow;
+  aspect-ratio: 1 / 1;
+  position: relative; }
+
+.main__store06 {
+  grid-area: main__store06;
+  background-color: yellow;
+  aspect-ratio: 1 / 1;
+  position: relative; }
+
+.main__store07 {
+  grid-area: main__store07;
+  background-color: yellow;
+  aspect-ratio: 1 / 1;
+  position: relative; }
+
+.main__store08 {
+  grid-area: main__store08;
+  background-color: yellow;
+  aspect-ratio: 1 / 1;
+  position: relative; }
+
+.main__store09 {
+  grid-area: main__store09;
+  background-color: yellow;
+  aspect-ratio: 1 / 1;
+  position: relative; }
+
+.main__store10 {
+  grid-area: main__store10;
   background-color: yellow;
   aspect-ratio: 1 / 1;
   position: relative; }
@@ -144,66 +173,7 @@
   .footer li {
     margin-top: 0.5rem; }
   .footer__sns {
-    width: 50%;
-    background-color: pink; }
-
-.store__main {
-  padding: 8rem 6rem 0rem 6rem;
-  font-family: mirra;
-  font-size: 6rem; }
-
-.main__storeCont {
-  width: 85%;
-  margin: auto; }
-
-.main__storeGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  grid-auto-columns: 1fr;
-  grid-auto-rows: 1fr;
-  gap: 2rem;
-  grid-auto-flow: row;
-  align-content: center;
-  align-items: stretch;
-  grid-template-areas: "main__e01 main__e02 main__e02" "main__e03 main__e02 main__e02" "main__e04 main__e05 main__e06" "main__e07 main__e07 main__e08" "main__e07 main__e07 main__e09"; }
-
-.main__e01 {
-  grid-area: main__e01;
-  background-color: red;
-  aspect-ratio: 1/1; }
-
-.main__e02 {
-  grid-area: main__e02;
-  background-color: pink; }
-
-.main__e03 {
-  grid-area: main__e03;
-  background-color: purple; }
-
-.main__e04 {
-  grid-area: main__e04;
-  background-color: cyan; }
-
-.main__e05 {
-  grid-area: main__e05;
-  background-color: orange; }
-
-.main__e06 {
-  grid-area: main__e06;
-  background-color: yellow; }
-
-.main__e07 {
-  grid-area: main__e07;
-  background-color: blue; }
-
-.main__e08 {
-  grid-area: main__e08;
-  background-color: magenta; }
-
-.main__e09 {
-  grid-area: main__e09;
-  background-color: darkcyan; }
+    width: 50%; }
 
 @media (min-width: 992px) {
   .header {
@@ -319,7 +289,8 @@
     height: 100vh;
     padding: 8rem 6rem;
     display: flex;
-    align-items: center; }
+    align-items: center;
+    background-color: pink; }
   .create__title {
     width: 25vh;
     font-family: mirra;

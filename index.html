@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
     <link rel="stylesheet" href="./css/style.css">
-    <title>Document</title>
+    <title>La Florería</title>
 </head>
 <body class="body">
     <!-- Encabezado -->
@@ -22,10 +22,10 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link" href="./pages/store.html">store</a>
+                    <a class="nav-link" href="#storeLink">store</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./pages/create.html">creá tu ramo</a>
+                    <a class="nav-link" href="#createLink">creá tu ramo</a>
                   </li>
                 </ul>
                 <button id="cartButton">carrito</button>
@@ -49,31 +49,7 @@
           </div>
     </div>
 </section>
-<section class="main__cardsContainer">
-    <article class="main__card">
-        <div class="main__cardContent">
-        <img src="./img/clipart1686103.png" alt="">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, consequuntur.</p>
-    </div>
-</article>
-    <article class="main__card">
-        <div class="main__cardContent">
-            <img src="./img/clipart2751895.png" alt="">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, consequuntur.</p>
-        </div>
-    </article>
-    <article class="main__card">
-        <div class="main__cardContent">
-            <img src="./img/clipart940165.png" alt="">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, consequuntur.</p>
-        </div>
-    </article>
-</section>
-<section class="main__create">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum ipsa consequatur dolorem repellendus eaque consequuntur aliquam quibusdam magni sed nobis?</p>
-    <a href=""><img src="" alt=""></a>
-</section>
-<section class="main__news">
+<section id="storeLink" class="main__news">
     new in store
 <article class="main__newsGrid">
     <div class="main__store01">
@@ -115,8 +91,76 @@
                 carrito
             </button>
         </div>
-    </div></article>
+    </div>
+    <div class="main__store06">
+        <div class="add">
+            <div class="add__price"></div>
+            <button class="add__cart">
+                carrito
+            </button>
+        </div>
+    </div>
+    <div class="main__store07">
+        <div class="add">
+            <div class="add__price"></div>
+            <button class="add__cart">
+                carrito
+            </button>
+        </div>
+    </div>
+    <div class="main__store08">
+        <div class="add">
+            <div class="add__price"></div>
+            <button class="add__cart">
+                carrito
+            </button>
+        </div>
+    </div>
+    <div class="main__store09">
+        <div class="add">
+            <div class="add__price"></div>
+            <button class="add__cart">
+                carrito
+            </button>
+        </div>
+    </div>
+    <div class="main__store10">
+        <div class="add">
+            <div class="add__price"></div>
+            <button class="add__cart">
+                carrito
+            </button>
+        </div>
+    </div>
+</article>
 </section>
+<section id="createLink" class="create">
+    <div class="create__container">
+      <section class="create__title">crea tu ramo</section>
+      <section class="create__img">
+        <div id="seleccion"></div>
+      </section>
+      <section id="settings">
+        <button id="rosa" class="florBoton">rosa</button>
+        <button id="fresia" class="florBoton">fresia</button>
+        <button id="jazmin" class="florBoton">jazmin</button>
+        <button id="lilium" class="florBoton">lilium</button>
+        <button id="manzanilla" class="florBoton">manzanilla</button>
+        <button id="crisantemo" class="florBoton">crisantemo</button>
+        <br /><br />
+        <button>azul</button>
+        <button>rosa</button>
+        <button>rojo</button>
+        <button>amarillo</button>
+        <button>naranja</button>
+        <button>violeta</button>
+        <br><br>
+        <textarea name="mensaje" id="" cols="30" rows="10"></textarea>
+        <br><br>
+        <input type="submit" value="añadir al carrito" id="sumarRamo">
+      </section>
+    </div>
+  </section>
 <section class="main__contact">
     <article class="main__contactForm">
        <div class="main__contactForm--container">
