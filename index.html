@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
 
     <link rel="stylesheet" href="./css/style.css">
     <title>La Florería</title>
@@ -28,7 +29,9 @@
                     <a class="nav-link" href="#createLink">creá tu ramo</a>
                   </li>
                 </ul>
-                <button id="cartButton">carrito</button>
+                <button id="cartButton"><span class="material-symbols-outlined">
+                    shopping_cart
+                    </span></button>
               </div>
             </div>
           </nav>
@@ -44,8 +47,12 @@
           </video>
           <div class="main__intro"> 
             <img src="./img/estaba.svg" alt="">
-            <div class="main__intro--desc"><button class="main__store"></button> conocé nuestros productos</div>
-            <div class="main__intro--create"> creá tu propio ramo<button class="main__crea"></button></div>
+            <div class="main__intro--desc"> <a href="#storeLink"><button class="main__store"><span class="material-symbols-outlined">
+                emoji_nature
+                </span></button> conocé nuestros productos</a></div>
+            <div class="main__intro--create"> <a href="#createLink">creá tu propio ramo<button class="main__crea"><span class="material-symbols-outlined">
+                local_florist
+                </span></button></a> </div>
           </div>
     </div>
 </section>
@@ -55,81 +62,61 @@
     <div class="main__store01">
         <div class="add">
             <div class="add__price"></div>
-            <button class="add__cart">
-                carrito
-            </button>
+            <button class="add__cart">1</button>
         </div>
     </div>
     <div class="main__store02">
         <div class="add">
             <div class="add__price"></div>
-            <button class="add__cart">
-                carrito
-            </button>
+            <button class="add__cart">2</button>
         </div>
     </div>
     <div class="main__store03">
         <div class="add">
             <div class="add__price"></div>
-            <button class="add__cart">
-                carrito
-            </button>
+            <button class="add__cart">3</button>
         </div>
     </div>
     <div class="main__store04">
         <div class="add">
             <div class="add__price"></div>
-            <button class="add__cart">
-                carrito
-            </button>
+            <button class="add__cart">4</button>
         </div>
     </div>
     <div class="main__store05">
         <div class="add">
             <div class="add__price"></div>
-            <button class="add__cart">
-                carrito
-            </button>
+            <button class="add__cart">5</button>
         </div>
     </div>
     <div class="main__store06">
         <div class="add">
             <div class="add__price"></div>
-            <button class="add__cart">
-                carrito
-            </button>
+            <button class="add__cart">6</button>
         </div>
     </div>
     <div class="main__store07">
         <div class="add">
             <div class="add__price"></div>
-            <button class="add__cart">
-                carrito
-            </button>
+            <button class="add__cart">7</button>
         </div>
     </div>
     <div class="main__store08">
         <div class="add">
             <div class="add__price"></div>
-            <button class="add__cart">
-                carrito
-            </button>
+            <button class="add__cart">8</button>
         </div>
     </div>
     <div class="main__store09">
         <div class="add">
             <div class="add__price"></div>
-            <button class="add__cart">
-                carrito
-            </button>
+            <button class="add__cart">9</button>
         </div>
     </div>
     <div class="main__store10">
         <div class="add">
             <div class="add__price"></div>
-            <button class="add__cart">
-                carrito
-            </button>
+            <button class="add__cart">10</button>
         </div>
     </div>
 </article>
@@ -138,24 +125,29 @@
     <div class="create__container">
       <section class="create__title">crea tu ramo</section>
       <section class="create__img">
-        <div id="seleccion"></div>
+        <div id="seleccionColor"></div>
+        <div id="seleccion">
+            <img src='../img/crisantemo.png'>
+        </div>
+        <div id="seleccionDos"><img src='../img/crisantemo.png'></div>
       </section>
       <section id="settings">
-        <button id="rosa" class="florBoton">rosa</button>
-        <button id="fresia" class="florBoton">fresia</button>
-        <button id="jazmin" class="florBoton">jazmin</button>
-        <button id="lilium" class="florBoton">lilium</button>
-        <button id="manzanilla" class="florBoton">manzanilla</button>
-        <button id="crisantemo" class="florBoton">crisantemo</button>
+        Elegí una flor principal para tu ramo<br>
+        <button id="rosa" class="florBoton">rosa</button> <br>
+        <button id="fresia" class="florBoton">fresia</button> <br>
+        <button id="jazmin" class="florBoton">jazmin</button> <br>
+        <button id="lilium" class="florBoton">lilium</button> <br>
+        <button id="manzanilla" class="florBoton">manzanilla</button> <br>
+        <button id="crisantemo" class="florBoton">crisantemo</button> <br>
         <br /><br />
-        <button>azul</button>
+        Elegí un color principal para tu ramo<br>
         <button>rosa</button>
         <button>rojo</button>
         <button>amarillo</button>
         <button>naranja</button>
         <button>violeta</button>
         <br><br>
-        <textarea name="mensaje" id="" cols="30" rows="10"></textarea>
+        <textarea name="mensaje" id="" cols="45" rows="3"></textarea>
         <br><br>
         <input type="submit" value="añadir al carrito" id="sumarRamo">
       </section>
@@ -202,6 +194,13 @@
     redes
 </div>
     </footer>
+    <div class="flashSale">
+        <marquee behavior="" direction="" scrolldelay="60"> <b> flash sale </b><span class="material-symbols-outlined">
+            bolt
+            </span><span class="material-symbols-outlined">
+                bolt
+                </span> usá el código <b> FLO615V </b>para obtener un 15% de descuento // recordá que podés pagar en <b> 6, 12 o 24 cuotas sin interés </b>todos los días. </marquee>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>
 </body>

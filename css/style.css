@@ -34,6 +34,9 @@
   color: white;
   padding: 0rem;
   width: 90%; }
+  .main__intro a {
+    color: white;
+    text-decoration: none; }
   .main__intro--desc {
     padding-top: 6rem; }
   .main__intro--create {
@@ -223,7 +226,10 @@
           border: 1px solid white;
           border-radius: 100%;
           vertical-align: middle;
-          margin-right: 1rem; }
+          margin-right: 1rem;
+          font-size: 1rem;
+          line-height: 0.6rem;
+          color: white; }
       .main__intro--create {
         text-align: right;
         font-size: 1rem; }
@@ -234,7 +240,10 @@
           border: 1px solid white;
           border-radius: 100%;
           vertical-align: middle;
-          margin-left: 1rem; }
+          margin-left: 1rem;
+          font-size: 1rem;
+          line-height: 0.6rem;
+          color: white; }
     .main__cardsContainer {
       flex-flow: row wrap;
       padding: 6rem; }
@@ -292,18 +301,18 @@
     align-items: center;
     background-color: pink; }
   .create__title {
-    width: 25vh;
+    width: 30vh;
     font-family: mirra;
     text-transform: uppercase;
-    font-size: 6rem;
+    font-size: 5rem;
     line-height: 6rem; }
   .create__img {
-    width: 50%;
-    text-align: center; }
+    aspect-ratio: 1/1;
+    width: 40vw;
+    text-align: center;
+    position: relative; }
     .create__img img {
-      width: 50%; }
-  .create__settings {
-    width: 25%; } }
+      width: 50%; } }
 
 .add {
   display: flex;
@@ -322,5 +331,43 @@
     background-color: white;
     aspect-ratio: 1/1;
     border: 1px solid black;
-    font-size: 0.5rem;
+    font-size: 3rem;
     border-radius: 100%; }
+
+#settings {
+  width: 30vw;
+  background-color: green; }
+  #settings button {
+    background-color: transparent;
+    color: white;
+    border: 0;
+    text-transform: uppercase;
+    font-weight: 400; }
+
+#seleccion {
+  position: absolute;
+  top: 10%;
+  left: 0%; }
+
+#seleccionColor {
+  background-color: white;
+  border-radius: 100%;
+  aspect-ratio: 1/1;
+  width: 30vw;
+  position: absolute;
+  top: 10%;
+  left: 10%; }
+
+#seleccionDos {
+  position: absolute;
+  top: 10%;
+  left: 0%; }
+
+.flashSale {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem; }

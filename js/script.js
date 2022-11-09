@@ -64,9 +64,6 @@ ramo.push(new Flor("manzanilla", 200));
 ramo.push(new Flor("crisantemo", 150));
 
 let ramoCompleto = [];
-const ramoPrecio = ramoCompleto.map((el) => el.precio);
-console.log(ramoPrecio);
-const total = ramoPrecio.reduce((a, b) => a + b, 0);
 //  let elegida = ramo.find((el) => el.nombre.includes(florElegir));
 //  console.log(elegida);
 
@@ -82,57 +79,98 @@ for (florBoton[i]; i < florBoton.length; i++) {
   let caso = florBoton[i].innerHTML;
   console.log(caso);
 
+  function off () {
+    if (ramoCompleto.length == 2) {
+      ramoCompleto.shift();
+    } else {
+      
+    }
+  }
+
   function logged() {
     switch (caso) {
       case "rosa":
         seleccion.innerHTML = "<img src='../img/PngItem_332482.png'>";
         ramoCompleto.push(ramo[0]);
+        off();
         console.log(ramoCompleto);
         break;
       case "fresia":
         seleccion.innerHTML = "<img src='../img/pngegg.png'>";
         ramoCompleto.push(ramo[1]);
+        off();
         console.log(ramoCompleto);
         break;
-        case "jazmin":
-          seleccion.innerHTML = "<img src='../img/jazmin.png'>";
-          ramoCompleto.push(ramo[2]);
-          console.log(ramoCompleto);
-          break;
-          case "lilium":
-            seleccion.innerHTML = "<img src='../img/lilium.png'>";
-            ramoCompleto.push(ramo[3]);
-            console.log(ramoCompleto);
-            break;
-            case "manzanilla":
-              seleccion.innerHTML = "<img src='../img/pngegg.png'>";
-              ramoCompleto.push(ramo[4]);
-              console.log(ramoCompleto);
-              break;
-              case "crisantemo":
-                seleccion.innerHTML = "<img src='../img/crisantemo.png'>";
-                ramoCompleto.push(ramo[5]);
-                console.log(ramoCompleto);
-                console.log(ramoPrecio);
-                break;
+      case "jazmin":
+        seleccion.innerHTML = "<img src='../img/jazmin.png'>";
+        ramoCompleto.push(ramo[2]);
+        off();
+        console.log(ramoCompleto);
+        break;
+      case "lilium":
+        seleccion.innerHTML = "<img src='../img/lilium.png'>";
+        ramoCompleto.push(ramo[3]);
+        off();
+        console.log(ramoCompleto);
+        break;
+      case "manzanilla":
+        seleccion.innerHTML = "<img src='../img/pngegg.png'>";
+        ramoCompleto.push(ramo[4]);
+        off();
+        console.log(ramoCompleto);
+        break;
+      case "crisantemo":
+        seleccion.innerHTML = "<img src='../img/crisantemo.png'>";
+        ramoCompleto.push(ramo[5]);
+        off();
+        console.log(ramoCompleto);
+        break;
+      default:
+        seleccion.innerHTML = "<img src='../img/crisantemo.png'>";
+        break;
     }
   }
-  console.log(ramoPrecio);
+}
+
+
+let sumarRamo = document.getElementById("sumarRamo");
+
+sumarRamo.addEventListener("click", alCarrito);
+
+function alCarrito() {
+
+  const ramoPrecio = ramoCompleto.map((el) => el.precio);
+  const total = ramoPrecio.reduce((a, b) => a + b, 0);
+  console.log(total);
+  carrito.push(ramoCompleto); 
+  console.log(carrito);
+
+  cuentaTotal.innerHTML = carrito.length;
 }
 
 // CARRITO
 let carrito = [];
 let cartButton = document.getElementById("cartButton");
-console.log(cartButton);
+let addCart = document.getElementsByClassName("add__cart");
+console.log(addCart);
 
-let agregarProducto = prompt(
-  "ingrese un producto 0 - alocacia 1- hoya pack 2- margarita 3 - salvia 4 - nanouk"
-);
+for (addCart[i]; i < addCart.length; i++) {
+  addCart[i].addEventListener("click", llevar);
+  let id = addCart[i].innerHTML;
+  console.log(id);
 
-function comprar(producto) {
-  carrito.push(plantas[producto]);
+  function llevar() {
+    carrito.push(plantas[id]);
+    console.log(carrito);
+
+    const plantasCompleto = carrito.map((el) => el.precio);
+    const plantasTotal = plantasCompleto.reduce((a, b) => a + b, 0);
+    console.log("el total a pagar es " + plantasTotal);
+
+    cuentaTotal.innerHTML = carrito.length;
+
+  }
 }
-comprar(agregarProducto);
 
 const conRamo = carrito.concat(ramoCompleto);
 
@@ -144,12 +182,8 @@ console.log(conRamoLista);
 
 console.log("el total a pagar es " + precioTotal);
 
-let botonProd = conRamo.length;
-
-const cuentaTotal = document.createElement("p");
-cuentaTotal.innerHTML = conRamo.length;
+ const cuentaTotal = document.createElement("p");
 cartButton.appendChild(cuentaTotal);
-
 // DESCUENTOS
 
 let codigo = prompt("Ingrese el código de descuento");
