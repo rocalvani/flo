@@ -382,7 +382,6 @@
     aspect-ratio: 1/1; }
 
 #seleccionColor {
-  background-color: white;
   border-radius: 100%;
   aspect-ratio: 1/1;
   width: 30vw;
@@ -419,3 +418,13 @@
       margin-top: -3rem; }
     .main__intro--create {
       margin-top: -3rem; } }
+
+#aside div {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  width: 15vw;
+  height: 100vh;
+  background-color: white;
+  padding: 2vw; }

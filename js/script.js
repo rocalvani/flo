@@ -60,15 +60,13 @@ ramo.push(new Flor("fresia", 200));
 ramo.push(new Flor("jazmín", 700));
 ramo.push(new Flor("margarita", 400));
 ramo.push(new Flor("lilium", 1500));
-ramo.push(new Flor("manzanilla", 200));
-ramo.push(new Flor("crisantemo", 150));
+ramo.push(new Flor("peonia", 1500));
+ramo.push(new Flor("lavanda", 150));
+ramo.push(new Flor("gypsophila", 250));
+ramo.push(new Flor("paniculata", 200));
+ramo.push(new Flor("berries", 320));
 
 let ramoCompleto = [];
-//  let elegida = ramo.find((el) => el.nombre.includes(florElegir));
-//  console.log(elegida);
-
-//  let elegidaIndex = ramo.indexOf(elegida);
-//  console.log(elegidaIndex);
 
 let seleccion = document.getElementById("seleccion");
 let florBoton = document.getElementsByClassName("florBoton");
@@ -113,8 +111,8 @@ for (florBoton[i]; i < florBoton.length; i++) {
         off();
         console.log(ramoCompleto);
         break;
-      case "manzanilla":
-        seleccion.innerHTML = "<img src='../img/pngegg.png'>";
+      case "peonia":
+        seleccion.innerHTML = "<img src='../img/peony.png'>";
         ramoCompleto.push(ramo[4]);
         off();
         console.log(ramoCompleto);
@@ -125,6 +123,12 @@ for (florBoton[i]; i < florBoton.length; i++) {
         off();
         console.log(ramoCompleto);
         break;
+        case "ranunculo":
+        seleccion.innerHTML = "<img src='../img/ranunculo.png'>";
+        ramoCompleto.push(ramo[6]);
+        off();
+        console.log(ramoCompleto);
+        break;
       default:
         seleccion.innerHTML = "<img src='../img/crisantemo.png'>";
         break;
@@ -132,6 +136,79 @@ for (florBoton[i]; i < florBoton.length; i++) {
   }
 }
 
+let seleccionColor = document.getElementById("seleccionColor");
+let florColor = document.getElementsByClassName("florColor");
+
+console.log(florColor);
+
+for (florColor[i=0]; i < florColor.length; i++) {
+  florColor[i].addEventListener("click", colorFondo);
+  let colorElegido = florColor[i].innerHTML;
+
+  function colorFondo() {
+    switch (colorElegido) {
+      case "blanco":
+        seleccionColor.style.backgroundColor = 'white';
+        break;
+      case "rojo":
+        seleccionColor.style.backgroundColor = 'red';
+        break;
+        case "rosa":
+        seleccionColor.style.backgroundColor = 'pink';
+        break;
+        case "amarillo":
+        seleccionColor.style.backgroundColor = 'yellow';
+        break;
+        case "violeta":
+        seleccionColor.style.backgroundColor = 'purple';
+        break;
+        case "naranja":
+        seleccionColor.style.backgroundColor = 'orange';
+        break;
+
+    }
+  }
+}
+
+let seleccionDos = document.getElementById("seleccionDos");
+let florDos = document.getElementsByClassName("florDos");
+
+for (florDos[i=0]; i < florDos.length; i++) {
+  florDos[i].addEventListener("click", secundaria);
+  let florSecundaria = florDos[i].innerHTML;
+  console.log(florSecundaria);
+
+  function secundaria() {
+    switch (florSecundaria) {
+      case "lavanda":
+        seleccionDos.innerHTML = "<img src='../img/lavanda.png'>";
+        ramoCompleto.push(ramo[7]);
+        console.log(ramoCompleto);
+        break;
+        case "gypsophila":
+        seleccionDos.innerHTML = "<img src='../img/gypso.png'>";
+        ramoCompleto.push(ramo[8]);
+        console.log(ramoCompleto);
+        break;
+        case "paniculata":
+        seleccionDos.innerHTML = "<img src='../img/baby.png'>";
+        ramoCompleto.push(ramo[9]);
+        console.log(ramoCompleto);
+        break;
+        case "frutos rojos":
+        seleccionDos.innerHTML = "<img src='../img/berry.png'>";
+        ramoCompleto.push(ramo[10]);
+        console.log(ramoCompleto);
+        break;
+        case "ninguno":
+          seleccionDos.innerHTML = "<img src='../img/nada.png'>"
+          break;
+      default:
+        seleccionDos.innerHTML = "<img src='../img/crisantemo.png'>";
+        break;
+    }
+  }
+}
 
 let sumarRamo = document.getElementById("sumarRamo");
 
@@ -184,6 +261,30 @@ console.log("el total a pagar es " + precioTotal);
 
  const cuentaTotal = document.createElement("p");
 cartButton.appendChild(cuentaTotal);
+
+// ASIDE DE CARRITO
+
+let aside = document.getElementById("aside");
+console.log(aside);
+let carritoBox = document.createElement("div");
+
+cartButton.addEventListener("click", abrirCarrito);
+
+function abrirCarrito () {
+  aside.appendChild(carritoBox);
+}
+
+let cerrar = document.createElement("div");
+cerrar.innerHTML = "<button class='cerrado'>X</button>";
+
+carritoBox.appendChild(cerrar);
+
+cerrar.addEventListener("click", cerrado);
+
+function cerrado () {
+  carritoBox.remove(cerrar);
+}
+
 // DESCUENTOS
 
 let codigo = prompt("Ingrese el código de descuento");
