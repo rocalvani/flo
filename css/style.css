@@ -198,6 +198,20 @@
       width: 2rem;
       height: 2rem;
       text-align: center; }
+  #cartButton {
+    position: relative;
+    border: 0;
+    background-color: transparent; }
+    #cartButton p {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: red;
+      aspect-ratio: 1/1;
+      padding: 0.3vh 0.7vh;
+      font-size: 1.2vh;
+      color: white;
+      border-radius: 100%; }
   .navbar-brand {
     padding: 1rem 5rem; }
   .main {
@@ -221,7 +235,7 @@
         padding: 0; }
         .main__intro--desc button {
           aspect-ratio: 1/1;
-          padding: 1rem;
+          padding: 0.5rem;
           background-color: transparent;
           border: 1px solid white;
           border-radius: 100%;
@@ -235,7 +249,7 @@
         font-size: 1rem; }
         .main__intro--create button {
           aspect-ratio: 1/1;
-          padding: 1rem;
+          padding: 0.5rem;
           background-color: transparent;
           border: 1px solid white;
           border-radius: 100%;
@@ -310,9 +324,7 @@
     aspect-ratio: 1/1;
     width: 40vw;
     text-align: center;
-    position: relative; }
-    .create__img img {
-      width: 50%; } }
+    position: relative; } }
 
 .add {
   display: flex;
@@ -336,18 +348,38 @@
 
 #settings {
   width: 30vw;
-  background-color: green; }
+  background-color: green;
+  font-size: 1.6vh;
+  color: white;
+  display: flex;
+  flex-flow: row wrap; }
   #settings button {
     background-color: transparent;
     color: white;
     border: 0;
     text-transform: uppercase;
-    font-weight: 400; }
+    font-weight: 400;
+    padding: 0.3rem 0; }
+
+.settings__01 {
+  width: 50%; }
+
+.settings__02 {
+  width: 50%; }
+
+.settings__03 {
+  width: 50%;
+  margin-top: 2rem; }
 
 #seleccion {
   position: absolute;
   top: 10%;
-  left: 0%; }
+  left: 10%;
+  width: 30vw;
+  aspect-ratio: 1/1; }
+  #seleccion img {
+    width: 100%;
+    aspect-ratio: 1/1; }
 
 #seleccionColor {
   background-color: white;
@@ -361,7 +393,12 @@
 #seleccionDos {
   position: absolute;
   top: 10%;
-  left: 0%; }
+  left: 10%;
+  width: 30vw;
+  aspect-ratio: 1/1; }
+  #seleccionDos img {
+    width: 100%;
+    aspect-ratio: 1/1; }
 
 .flashSale {
   position: fixed;
@@ -370,4 +407,15 @@
   width: 100%;
   background-color: white;
   text-transform: uppercase;
-  letter-spacing: 0.1rem; }
+  letter-spacing: 0.1rem;
+  font-size: 1.5vh;
+  line-height: 1.5vh;
+  padding-top: 1vh; }
+
+@media (min-width: 1280px) {
+  .main__intro {
+    padding-top: 2rem; }
+    .main__intro--desc {
+      margin-top: -3rem; }
+    .main__intro--create {
+      margin-top: -3rem; } }

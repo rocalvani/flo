@@ -221,6 +221,23 @@
       text-align: center;
     }
   }
+
+#cartButton {
+    position: relative;
+    border:0;
+    background-color: transparent;
+    p {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: red;
+      aspect-ratio: 1/1;
+      padding: 0.3vh 0.7vh;
+      font-size: 1.2vh;
+      color: white;
+      border-radius: 100%;
+    }
+  }
   .navbar-brand {
     padding: 1rem 5rem;
   }
@@ -247,7 +264,7 @@
         padding: 0;
         button {
           aspect-ratio: 1/1;
-          padding: 1rem;
+          padding: 0.5rem;
           background-color: transparent;
           border: 1px solid white;
           border-radius: 100%;
@@ -263,7 +280,7 @@
         font-size: 1rem;
         button {
           aspect-ratio: 1/1;
-          padding: 1rem;
+          padding: 0.5rem;
           background-color: transparent;
           border: 1px solid white;
           border-radius: 100%;
@@ -363,9 +380,6 @@
   width: 40vw;
       text-align: center;
       position: relative;
-      img {
-        width: 50%;
-      }
     }
   }
 }
@@ -396,19 +410,43 @@
 #settings {
   width: 30vw;
   background-color: green;
+  font-size: 1.6vh;
+  color: white;
+  display: flex;
+  flex-flow: row wrap;
   button {
     background-color: transparent;
     color: white;
     border: 0;
     text-transform: uppercase;
     font-weight: 400;
+    padding: 0.3rem 0;
   } 
+}
+
+.settings {
+  &__01 {
+    width: 50%;
+  }
+  &__02 {
+    width: 50%;
+  }
+  &__03 {
+    width: 50%;
+    margin-top: 2rem;
+  }
 }
 
 #seleccion {
   position: absolute;
   top: 10%;
-  left: 0%;
+  left: 10%;
+  width: 30vw;
+  aspect-ratio: 1/1; 
+  img {
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
 }
 
 #seleccionColor {
@@ -424,7 +462,13 @@
 #seleccionDos {
   position: absolute;
   top: 10%;
-  left: 0%;
+  left: 10%;
+  width: 30vw;
+  aspect-ratio: 1/1; 
+  img {
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
 }
 
 .flashSale {
@@ -435,5 +479,23 @@
 background-color: white;
 text-transform: uppercase;
 letter-spacing: 0.1rem;
+font-size: 1.5vh;
+line-height: 1.5vh;
+padding-top: 1vh;
+
+}
+
+@media (min-width: 1280px) {
+  .main {
+    &__intro {
+      padding-top: 2rem;
+      &--desc {
+        margin-top: -3rem;
+      }
+      &--create {
+        margin-top: -3rem;
+      }
+    }
+  }
 
 }
