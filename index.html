@@ -170,9 +170,15 @@
 <section class="main__contact">
     <article class="main__contactForm">
        <div class="main__contactForm--container">
-        <h3>¿te quedan dudas? contactanos</h3>
-        <form action="">
-            <input type="text">
+        <h3>y si te quedan dudas, contactanos</h3>
+        <form action="" class="main__contactForm--form">
+            <div class="main__contactForm--side"><label for="nombre">Dejanos tu nombre:</label> <br>
+                <input type="text" name="nombre" placeholder="Juan"></div>
+            <div class="main__contactForm--side"><label for="email">Y tu email:</label> <br>
+                <input type="email" name="email" placeholder="abc@gmail.com"></div>
+            <div class="main__contactForm--sideB"><label for="mesaje">Contanos cuál es tu consulta:</label><br>
+                <textarea name="" id="" rows="4" placeholder="Breve descripción de tu consulta"></textarea><br><br>
+            <input type="submit" value="Enviar"></div>
         </form>
        </div>
     </article>
@@ -205,7 +211,10 @@
 </ul>
 </div>
 <div class="footer__sns">
-    redes
+    redes <br>
+    <a href="twitter.com"><img src="./img/tw.svg" alt="twitter"></a>
+    <a href="instagram.com"><img src="./img/ig.svg" alt="instagram"></a>
+    <a href="pinterest.com"><img src="./img/pin.svg" alt="pinterest"></a>
 </div>
     </footer>
     <div class="flashSale">

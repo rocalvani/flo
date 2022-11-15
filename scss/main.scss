@@ -178,7 +178,7 @@
   width: 100%;
   padding: 3rem 6rem;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -189,12 +189,17 @@
     font-weight: 400;
     margin-top: 0.5rem;
     padding: 0;
+    font-size: 0.6rem;
   }
   li {
     margin-top: 0.5rem;
   }
   &__sns {
     width: 50%;
+    img {
+      height: 2rem;
+      margin-right: 1rem;
+    }
   }
 }
 
@@ -322,6 +327,47 @@
     &__contactForm {
       width: 50%;
       padding: 0;
+      font-size: 0.8rem;
+      &--form {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        input {
+          width: 100%;
+          border: 1px solid #bccac7;
+          border-radius: 1rem;
+          padding: 0.2rem 0.5rem;
+          font-size: 0.65rem;
+        }
+      }
+      &--side {
+        width: 48%;
+        margin-bottom: 2vh;
+      }
+      &--sideB {
+        width: 100%;
+        input {
+          width: 50%;
+          font-family:mirra;
+          text-transform:uppercase;
+          font-size: 2rem;
+          padding: 1rem 0rem 0.7rem 2rem;
+          text-align:left;
+          border-radius: 3rem;
+        }
+      }
+      &--container {
+        h3 {
+          font-size: 3rem;
+        }
+        textarea {
+          width: 100%;
+          border: 1px solid #bccac7;
+          border-radius: 1rem;
+          padding: 0.5rem 0.5rem;
+          font-size: 0.65rem;
+        }
+      }
     }
     &__map {
       width: 50%;
@@ -366,7 +412,7 @@
       padding: 8rem 6rem;
       display: flex;
       align-items: center;
-      background-color: pink;
+      background-color: #bccac7;
     }
     &__title {
       width: 30vh;
@@ -409,7 +455,6 @@
 
 #settings {
   width: 30vw;
-  background-color: green;
   font-size: 1.6vh;
   color: white;
   display: flex;
@@ -456,6 +501,7 @@
   position: absolute;
   top: 10%;
   left: 10%;
+  background-color: white;
 }
 
 #seleccionDos {
@@ -505,9 +551,27 @@ padding-top: 1vh;
   right: 0;
   top: 0;
   z-index: 1;
-  width: 15vw;
+  width: 25%;
   height: 100vh;
   background-color: white;
   padding: 2vw;
+  display: flex;
+  flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.cerrado {
+  border-radius: 100%;
+  aspect-ratio: 1/1;
+  padding: 0.3rem 0.5rem 0rem 0.5rem;
+  border: 1px solid #bccac7;
+  background-color: white;
+  color: #bccac7;
+  align-self: flex-end;
+  margin-right: 1vw;
+  span {
+    font-size: 0.8rem;
+  }
 }
 }

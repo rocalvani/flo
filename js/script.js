@@ -88,49 +88,49 @@ for (florBoton[i]; i < florBoton.length; i++) {
   function logged() {
     switch (caso) {
       case "rosa":
-        seleccion.innerHTML = "<img src='../img/PngItem_332482.png'>";
+        seleccion.innerHTML = "<img src='./img/PngItem_332482.png'>";
         ramoCompleto.push(ramo[0]);
         off();
         console.log(ramoCompleto);
         break;
       case "fresia":
-        seleccion.innerHTML = "<img src='../img/pngegg.png'>";
+        seleccion.innerHTML = "<img src='./img/pngegg.png'>";
         ramoCompleto.push(ramo[1]);
         off();
         console.log(ramoCompleto);
         break;
       case "jazmin":
-        seleccion.innerHTML = "<img src='../img/jazmin.png'>";
+        seleccion.innerHTML = "<img src='./img/jazmin.png'>";
         ramoCompleto.push(ramo[2]);
         off();
         console.log(ramoCompleto);
         break;
       case "lilium":
-        seleccion.innerHTML = "<img src='../img/lilium.png'>";
+        seleccion.innerHTML = "<img src='./img/lilium.png'>";
         ramoCompleto.push(ramo[3]);
         off();
         console.log(ramoCompleto);
         break;
       case "peonia":
-        seleccion.innerHTML = "<img src='../img/peony.png'>";
+        seleccion.innerHTML = "<img src='./img/peony.png'>";
         ramoCompleto.push(ramo[4]);
         off();
         console.log(ramoCompleto);
         break;
       case "crisantemo":
-        seleccion.innerHTML = "<img src='../img/crisantemo.png'>";
+        seleccion.innerHTML = "<img src='./img/crisantemo.png'>";
         ramoCompleto.push(ramo[5]);
         off();
         console.log(ramoCompleto);
         break;
         case "ranunculo":
-        seleccion.innerHTML = "<img src='../img/ranunculo.png'>";
+        seleccion.innerHTML = "<img src='./img/ranunculo.png'>";
         ramoCompleto.push(ramo[6]);
         off();
         console.log(ramoCompleto);
         break;
       default:
-        seleccion.innerHTML = "<img src='../img/crisantemo.png'>";
+        seleccion.innerHTML = "<img src='./img/crisantemo.png'>";
         break;
     }
   }
@@ -181,30 +181,30 @@ for (florDos[i=0]; i < florDos.length; i++) {
   function secundaria() {
     switch (florSecundaria) {
       case "lavanda":
-        seleccionDos.innerHTML = "<img src='../img/lavanda.png'>";
+        seleccionDos.innerHTML = "<img src='./img/lavanda.png'>";
         ramoCompleto.push(ramo[7]);
         console.log(ramoCompleto);
         break;
         case "gypsophila":
-        seleccionDos.innerHTML = "<img src='../img/gypso.png'>";
+        seleccionDos.innerHTML = "<img src='./img/gypso.png'>";
         ramoCompleto.push(ramo[8]);
         console.log(ramoCompleto);
         break;
         case "paniculata":
-        seleccionDos.innerHTML = "<img src='../img/baby.png'>";
+        seleccionDos.innerHTML = "<img src='./img/baby.png'>";
         ramoCompleto.push(ramo[9]);
         console.log(ramoCompleto);
         break;
         case "frutos rojos":
-        seleccionDos.innerHTML = "<img src='../img/berry.png'>";
+        seleccionDos.innerHTML = "<img src='./img/berry.png'>";
         ramoCompleto.push(ramo[10]);
         console.log(ramoCompleto);
         break;
         case "ninguno":
-          seleccionDos.innerHTML = "<img src='../img/nada.png'>"
+          seleccionDos.innerHTML = "<img src='./img/nada.png'>"
           break;
       default:
-        seleccionDos.innerHTML = "<img src='../img/crisantemo.png'>";
+        seleccionDos.innerHTML = "<img src='./img/crisantemo.png'>";
         break;
     }
   }
@@ -275,7 +275,7 @@ function abrirCarrito () {
 }
 
 let cerrar = document.createElement("div");
-cerrar.innerHTML = "<button class='cerrado'>X</button>";
+cerrar.innerHTML = "<button class='cerrado'><span class='material-symbols-outlined'>close</span></button>";
 
 carritoBox.appendChild(cerrar);
 
