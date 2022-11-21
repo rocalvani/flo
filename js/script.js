@@ -115,11 +115,13 @@ plantas.push(
   )
 );
 
+// NEW IN STORE 
+
 const newIn = [];
 
-newIn.push(new Planta ("naranjo", 1500, "perenne", "exterior", 15, "./img/flores-15.png"));
-newIn.push(new Planta ("naranjo", 1500, "perenne", "exterior", 15, "./img/flores-15.png"));
-newIn.push(new Planta ("naranjo", 1500, "perenne", "exterior", 15, "./img/flores-15.png"));
+newIn.push(new Planta ("amapola", 1750, "perenne", "exterior", 17, "./img/flores-17.png"));
+newIn.push(new Planta ("cerezo", 6800, "perenne", "exterior", 18, "./img/flores-18.png"));
+newIn.push(new Planta ("olivo", 3160, "perenne", "exterior", 19, "./img/flores-19.png"));
 
 // FILTROS
 

@@ -170,7 +170,9 @@ function ramoCompleto() {
   
   if (ramoPrincipal && ramoSecundario) {
     let ramoFlores = ramoPrincipal.concat(ramoSecundario);
-    ramo = ramoFlores.concat(detail);
+    if (detail) {
+      ramo = ramoFlores.concat(detail);
+    } else {ramo = ramoFlores}
 
     ramoTotal = (ramo.reduce((acc, el) => acc + el.precio, 0) + cantidadTotal) * 1.21;
     
