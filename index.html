@@ -17,14 +17,17 @@
     <header class="header">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#"><img src="./img/logo.svg" alt=""></a>
+              <a class="navbar-brand" href="./index.html"><img src="./img/logo.svg" alt=""></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link" href="#storeLink">store</a>
+                    <a class="nav-link" href="#storeLink">new in store</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./pages/store.html">store</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#createLink">creá tu ramo</a>
@@ -37,7 +40,8 @@
             </div>
           </nav>
       </header>
-      <aside id="aside"></aside>
+      <aside id="asideCart" class="asideCart--closed">
+      </aside>
     <main class="main">
         <div class="main__container">
 <section class="main__img">
@@ -59,72 +63,14 @@
 </section>
 <section id="storeLink" class="main__news">
     new in store
-<article class="main__newsGrid">
-    <div class="main__store01">
-        <div class="add">
-            <div class="add__price"></div>
-            <button class="add__cart">1</button>
-        </div>
-    </div>
-    <div class="main__store02">
-        <div class="add">
-            <div class="add__price"></div>
-            <button class="add__cart">2</button>
-        </div>
-    </div>
-    <div class="main__store03">
-        <div class="add">
-            <div class="add__price"></div>
-            <button class="add__cart">3</button>
-        </div>
-    </div>
-    <div class="main__store04">
-        <div class="add">
-            <div class="add__price"></div>
-            <button class="add__cart">4</button>
-        </div>
-    </div>
-    <div class="main__store05">
-        <div class="add">
-            <div class="add__price"></div>
-            <button class="add__cart">5</button>
-        </div>
-    </div>
-    <div class="main__store06">
-        <div class="add">
-            <div class="add__price"></div>
-            <button class="add__cart">6</button>
-        </div>
-    </div>
-    <div class="main__store07">
-        <div class="add">
-            <div class="add__price"></div>
-            <button class="add__cart">7</button>
-        </div>
-    </div>
-    <div class="main__store08">
-        <div class="add">
-            <div class="add__price"></div>
-            <button class="add__cart">8</button>
-        </div>
-    </div>
-    <div class="main__store09">
-        <div class="add">
-            <div class="add__price"></div>
-            <button class="add__cart">9</button>
-        </div>
-    </div>
-    <div class="main__store10">
-        <div class="add">
-            <div class="add__price"></div>
-            <button class="add__cart">10</button>
-        </div>
-    </div>
-</article>
+    <article id="newIn"></article>
 </section>
 <section id="createLink" class="create">
     <div class="create__container">
-      <section class="create__title">crea tu ramo</section>
+      <section class="create__title">
+        <p>crea tu ramo</p>
+        <article id="settings__color"></article>
+      </section>
       <section class="create__img">
         <div id="seleccionColor">
             <img src="../img/greenery.png" alt="" width="100%">
@@ -135,35 +81,24 @@
         <div id="seleccionDos"></div>
       </section>
       <section id="settings">
-        <div class="settings__01">Elegí una flor principal para tu ramo<br>
-            <button class="florBoton">rosa</button> <br>
-            <button class="florBoton">fresia</button> <br>
-            <button  class="florBoton">jazmin</button> <br>
-            <button  class="florBoton">lilium</button> <br>
-            <button  class="florBoton">peonia</button> <br>
-            <button  class="florBoton">crisantemo</button> <br>
-            <button  class="florBoton">ranunculo</button> <br>
-            </div>
-            <div class="settings__02">Elegí una flor secundaria para tu ramo<br>
-                <button class="florDos">lavanda</button> <br>
-                <button  class="florDos">gypsophila</button> <br>
-                <button  class="florDos">paniculata</button> <br>
-                <button  class="florDos">frutos rojos</button> <br>
-                <button  class="florDos">ninguno</button> <br>
-            
-                </div>
-                <div id="botonesColor" class="settings__03">Elegí una flor principal para tu ramo<br>
-                    <button class="florColor" value="blanco">blanco</button><br>
-                    <button class="florColor" value="rosa">rosa</button><br>
-                    <button class="florColor" value ="rojo">rojo</button><br>
-                    <button class="florColor" value="amarillo">amarillo</button><br>
-                    <button class="florColor" value="violeta">violeta</button><br>
-                    <button class="florColor" value="naranja">naranja</button><br>
-                    </div>
-       
-        <textarea name="mensaje" id="" cols="45" rows="3"></textarea>
-        <br><br>
-        <input type="submit" value="añadir al carrito" id="sumarRamo">
+        <article id="settings__principal"></article>
+        <article id="settings__secundario"></article>
+        <article id="settings__cantidad">
+<button id="settings__cantidad--6">6</button>
+<button id="settings__cantidad--12">12</button>
+<button id="settings__cantidad--18">18</button>
+        </article>
+        <article id="settings__msj">
+<form action="">
+  <textarea name="" id="settings__msj--form" cols="30" rows="10"></textarea>
+</form>
+        </article>
+        <article id="settings__compra">
+
+          <div id="settings__compra--total"></div>
+          <button id="settings__compra--button">Siguiente</button>
+        </article>
+
       </section>
     </div>
   </section>
@@ -221,6 +156,8 @@
         <marquee behavior="" direction="" scrolldelay="60"> <b> flash sale </b> ⚡⚡ usá el código <b> FLO615V </b>para obtener un 15% de descuento // recordá que podés pagar en <b> 6, 12 o 24 cuotas sin interés </b>todos los días. </marquee>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <script src="./js/script.js"></script>
+    <script src="./js/script.js" type="module"></script>
+    <script src="./modules/create.js" type="module"></script>
+    <script src="./modules/new.js" type="module"></script>
 </body>
 </html>

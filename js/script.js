@@ -1,374 +1,267 @@
-// STORE
+// EXPORT
+
+export {
+  aside,
+  carrito,
+  plantas,
+  cart,
+  eliminarProducto,
+  cerrado,
+  cuentaTotal,
+  florPrincipal,
+  florSecundaria,
+  Flor,
+  Color,
+  colores,
+  newIn
+};
+
+
+// BÁSICOS
+const compra = (clave, valor) => localStorage.setItem(clave, valor);
+let carrito = JSON.parse(localStorage.getItem("listaProductos")) || [];
+
+// PRODUCTOS STORE
 class Planta {
-  constructor(nombre, precio, stock, tipo, lugar) {
+  constructor(nombre, precio, tipo, lugar, id, img) {
     this.nombre = nombre;
     this.precio = parseInt(precio);
-    this.stock = stock;
     this.tipo = tipo;
     this.lugar = lugar;
+    this.id = id;
+    this.img = img;
   }
   sumaIva() {
     this.precio = this.precio * 1.21;
-    console.log(this.precio);
   }
-  sinStock() {
-    if (this.stock == 0) {
-      console.log("Este producto no tiene stock.");
-    } else {
-      console.log("Puede agregarlo al carrito.");
-    }
-  }
+  
 }
 
 const plantas = [];
-plantas.push(new Planta("alocacia", 1800, 25, "perenne", "interior"));
-plantas.push(new Planta("hoya pack", 3000, 1, "perenne", "interior"));
-plantas.push(new Planta("margarita", 800, 35, "perenne", "exterior"));
-plantas.push(new Planta("salvia", 500, 30, "perenne", "exterior"));
-plantas.push(new Planta("nanouk", 1800, 7, "perenne", "interior"));
-plantas.push(new Planta("ave del paraíso", 1800, 10, "perenne", "exterior"));
-plantas.push(new Planta("hierba mariposa", 2500, 0, "perenne", "exterior"));
-plantas.push(new Planta("geranio", 800, 23, "perenne", "exterior"));
-plantas.push(new Planta("marimonia", 350, 35, "época", "exterior"));
+plantas.push(
+  new Planta(
+    "peperomia pilea",
+    1100,
+    "perenne",
+    "interior",
+    1,
+    "./img/flores-01.png"
+  )
+);
+plantas.push(
+  new Planta("fittonia", 1100, "perenne", "interior", 2, "./img/flores-02.png")
+);
+plantas.push(
+  new Planta("orquídea", 5900, "perenne", "interior", 3, "./img/flores-03.png")
+);
+plantas.push(
+  new Planta("monstera", 1200, "perenne", "interior", 4, "./img/flores-04.png")
+);
+plantas.push(
+  new Planta("begonia", 2600, "perenne", "interior", 5, "./img/flores-05.png")
+);
+plantas.push(
+  new Planta(
+    "violeta africana",
+    980,
+    "perenne",
+    "interior",
+    6,
+    "./img/flores-06.png"
+  )
+);
+plantas.push(
+  new Planta("lavanda", 190, "perenne", "exterior", 7, "./img/flores-07.png")
+);
+plantas.push(
+  new Planta("kalanchoe", 590, "perenne", "exterior", 8, "./img/flores-08.png")
+);
+plantas.push(
+  new Planta("gazania", 170, "perenne", "exterior", 9, "./img/flores-09.png")
+);
+plantas.push(
+  new Planta("geranio", 980, "perenne", "exterior", 10, "./img/flores-10.png")
+);
+plantas.push(
+  new Planta("oxalis", 980, "anual", "exterior", 11, "./img/flores-11.png")
+);
+plantas.push(
+  new Planta("manzanilla", 210, "anual", "exterior", 12, "./img/flores-12.png")
+);
+plantas.push(
+  new Planta(
+    "agapanthus",
+    790,
+    "perenne",
+    "exterior",
+    13,
+    "./img/flores-13.png"
+  )
+);
+plantas.push(
+  new Planta("frutilla", 190, "perenne", "exterior", 14, "./img/flores-14.png")
+);
+plantas.push(
+  new Planta("naranjo", 1500, "perenne", "exterior", 15, "./img/flores-15.png")
+);
+plantas.push(
+  new Planta(
+    "suculentas",
+    1200,
+    "perenne",
+    "exterior",
+    16,
+    "./img/flores-16.png"
+  )
+);
 
-for (const Planta of plantas) {
-  Planta.sumaIva();
-  Planta.sinStock();
-}
+const newIn = [];
+
+newIn.push(new Planta ("naranjo", 1500, "perenne", "exterior", 15, "./img/flores-15.png"));
+newIn.push(new Planta ("naranjo", 1500, "perenne", "exterior", 15, "./img/flores-15.png"));
+newIn.push(new Planta ("naranjo", 1500, "perenne", "exterior", 15, "./img/flores-15.png"));
+
+// FILTROS
 
 const perenne = plantas.filter((el) => el.tipo.includes("perenne"));
-const epoca = plantas.filter((el) => el.tipo.includes("época" || "epoca"));
+const anual = plantas.filter((el) => el.tipo.includes("anual"));
 const interior = plantas.filter((el) => el.lugar.includes("interior"));
 const exterior = plantas.filter((el) => el.lugar.includes("exterior"));
 
-const found = plantas.find((el) => el.tipo === "época");
-
-console.log(found);
-console.log(exterior);
-
-// RAMOS
+// FLORES PARA RAMO
 class Flor {
-  constructor(nombre, precio) {
+  constructor(nombre, precio, img) {
     this.nombre = nombre;
+    this.precio = precio;
+    this.img = img;
+  }
+}
+
+const florPrincipal = [];
+const florSecundaria = [];
+
+florPrincipal.push(new Flor("rosa", 1000, "./img/PngItem_332482.png"));
+florPrincipal.push(new Flor("fresia", 200, "./img/pngegg.png"));
+florPrincipal.push(new Flor("jazmín", 700, "./img/jazmin.png"));
+florPrincipal.push(new Flor("lilium", 1500, "./img/lilium.png"));
+florPrincipal.push(new Flor("peonia", 1500, "./img/peony.png"));
+florPrincipal.push(new Flor("crisantemo", 1500, "./img/crisantemo.png"));
+florPrincipal.push(new Flor("ranunculo", 1500, "./img/ranunculo.png"));
+florSecundaria.push(new Flor("lavanda", 150, "./img/lavanda.png"));
+florSecundaria.push(new Flor("gypsophila", 250, "./img/gypso.png"));
+florSecundaria.push(new Flor("paniculata", 200, "./img/baby.png"));
+florSecundaria.push(new Flor("berries", 320, "./img/berry.png"));
+
+// COLORES PARA ELEGIR
+class Color {
+  constructor(nombre, color, precio) {
+    this.nombre = nombre;
+    this.color = color;
     this.precio = precio;
   }
 }
 
-const ramo = [];
-ramo.push(new Flor("rosa", 1000));
-ramo.push(new Flor("fresia", 200));
-ramo.push(new Flor("jazmín", 700));
-ramo.push(new Flor("margarita", 400));
-ramo.push(new Flor("lilium", 1500));
-ramo.push(new Flor("peonia", 1500));
-ramo.push(new Flor("lavanda", 150));
-ramo.push(new Flor("gypsophila", 250));
-ramo.push(new Flor("paniculata", 200));
-ramo.push(new Flor("berries", 320));
+const colores = [];
 
-let ramoCompleto = [];
+colores.push(new Color("blanco", "#ffffff"));
+colores.push(new Color("rosa", "#DE89A8"));
+colores.push(new Color("rojo", "#F09494"));
+colores.push(new Color("naranja", "#F5C183"));
+colores.push(new Color("violeta", "#AE89DE"));
+colores.push(new Color("amarillo", "#EAE190"));
+colores.push(new Color("aleatorio", "#089f8f"));
 
-let seleccion = document.getElementById("seleccion");
-let florBoton = document.getElementsByClassName("florBoton");
+// CUENTA SOBRE BOTÓN DE CARRITO
+let cartButton = document.getElementById("cartButton");
 
-let i = 0;
-for (florBoton[i]; i < florBoton.length; i++) {
-  florBoton[i].addEventListener("click", logged);
-  let caso = florBoton[i].innerHTML;
-  console.log(caso);
+const cuentaTotal = document.createElement("p");
+cartButton.appendChild(cuentaTotal);
 
-  function off () {
-    if (ramoCompleto.length == 2) {
-      ramoCompleto.shift();
-    } else {
-      
-    }
-  }
-
-  function logged() {
-    switch (caso) {
-      case "rosa":
-        seleccion.innerHTML = "<img src='./img/PngItem_332482.png'>";
-        ramoCompleto.push(ramo[0]);
-        off();
-        console.log(ramoCompleto);
-        break;
-      case "fresia":
-        seleccion.innerHTML = "<img src='./img/pngegg.png'>";
-        ramoCompleto.push(ramo[1]);
-        off();
-        console.log(ramoCompleto);
-        break;
-      case "jazmin":
-        seleccion.innerHTML = "<img src='./img/jazmin.png'>";
-        ramoCompleto.push(ramo[2]);
-        off();
-        console.log(ramoCompleto);
-        break;
-      case "lilium":
-        seleccion.innerHTML = "<img src='./img/lilium.png'>";
-        ramoCompleto.push(ramo[3]);
-        off();
-        console.log(ramoCompleto);
-        break;
-      case "peonia":
-        seleccion.innerHTML = "<img src='./img/peony.png'>";
-        ramoCompleto.push(ramo[4]);
-        off();
-        console.log(ramoCompleto);
-        break;
-      case "crisantemo":
-        seleccion.innerHTML = "<img src='./img/crisantemo.png'>";
-        ramoCompleto.push(ramo[5]);
-        off();
-        console.log(ramoCompleto);
-        break;
-        case "ranunculo":
-        seleccion.innerHTML = "<img src='./img/ranunculo.png'>";
-        ramoCompleto.push(ramo[6]);
-        off();
-        console.log(ramoCompleto);
-        break;
-      default:
-        seleccion.innerHTML = "<img src='./img/crisantemo.png'>";
-        break;
-    }
-  }
-}
-
-let seleccionColor = document.getElementById("seleccionColor");
-let florColor = document.getElementsByClassName("florColor");
-
-console.log(florColor);
-
-for (florColor[i=0]; i < florColor.length; i++) {
-  florColor[i].addEventListener("click", colorFondo);
-  let colorElegido = florColor[i].innerHTML;
-
-  function colorFondo() {
-    switch (colorElegido) {
-      case "blanco":
-        seleccionColor.style.backgroundColor = 'white';
-        break;
-      case "rojo":
-        seleccionColor.style.backgroundColor = 'red';
-        break;
-        case "rosa":
-        seleccionColor.style.backgroundColor = 'pink';
-        break;
-        case "amarillo":
-        seleccionColor.style.backgroundColor = 'yellow';
-        break;
-        case "violeta":
-        seleccionColor.style.backgroundColor = 'purple';
-        break;
-        case "naranja":
-        seleccionColor.style.backgroundColor = 'orange';
-        break;
-
-    }
-  }
-}
-
-let seleccionDos = document.getElementById("seleccionDos");
-let florDos = document.getElementsByClassName("florDos");
-
-for (florDos[i=0]; i < florDos.length; i++) {
-  florDos[i].addEventListener("click", secundaria);
-  let florSecundaria = florDos[i].innerHTML;
-  console.log(florSecundaria);
-
-  function secundaria() {
-    switch (florSecundaria) {
-      case "lavanda":
-        seleccionDos.innerHTML = "<img src='./img/lavanda.png'>";
-        ramoCompleto.push(ramo[7]);
-        console.log(ramoCompleto);
-        break;
-        case "gypsophila":
-        seleccionDos.innerHTML = "<img src='./img/gypso.png'>";
-        ramoCompleto.push(ramo[8]);
-        console.log(ramoCompleto);
-        break;
-        case "paniculata":
-        seleccionDos.innerHTML = "<img src='./img/baby.png'>";
-        ramoCompleto.push(ramo[9]);
-        console.log(ramoCompleto);
-        break;
-        case "frutos rojos":
-        seleccionDos.innerHTML = "<img src='./img/berry.png'>";
-        ramoCompleto.push(ramo[10]);
-        console.log(ramoCompleto);
-        break;
-        case "ninguno":
-          seleccionDos.innerHTML = "<img src='./img/nada.png'>"
-          break;
-      default:
-        seleccionDos.innerHTML = "<img src='./img/crisantemo.png'>";
-        break;
-    }
-  }
-}
-
-let sumarRamo = document.getElementById("sumarRamo");
-
-sumarRamo.addEventListener("click", alCarrito);
-
-function alCarrito() {
-
-  const ramoPrecio = ramoCompleto.map((el) => el.precio);
-  const total = ramoPrecio.reduce((a, b) => a + b, 0);
-  console.log(total);
-  carrito.push(ramoCompleto); 
-  console.log(carrito);
-
+function initiate() {
   cuentaTotal.innerHTML = carrito.length;
 }
 
-// CARRITO
-let carrito = [];
-let cartButton = document.getElementById("cartButton");
-let addCart = document.getElementsByClassName("add__cart");
-console.log(addCart);
-
-for (addCart[i]; i < addCart.length; i++) {
-  addCart[i].addEventListener("click", llevar);
-  let id = addCart[i].innerHTML;
-  console.log(id);
-
-  function llevar() {
-    carrito.push(plantas[id]);
-    console.log(carrito);
-
-    const plantasCompleto = carrito.map((el) => el.precio);
-    const plantasTotal = plantasCompleto.reduce((a, b) => a + b, 0);
-    console.log("el total a pagar es " + plantasTotal);
-
-    cuentaTotal.innerHTML = carrito.length;
-
-  }
-}
-
-const conRamo = carrito.concat(ramoCompleto);
-
-const conRamoTotal = conRamo.map((el) => el.precio);
-const precioTotal = conRamoTotal.reduce((a, b) => a + b, 0);
-
-const conRamoLista = conRamo.map((el) => el.nombre);
-console.log(conRamoLista);
-
-console.log("el total a pagar es " + precioTotal);
-
- const cuentaTotal = document.createElement("p");
-cartButton.appendChild(cuentaTotal);
+initiate();
 
 // ASIDE DE CARRITO
 
-let aside = document.getElementById("aside");
-console.log(aside);
-let carritoBox = document.createElement("div");
+let aside = document.getElementById("asideCart");
 
-cartButton.addEventListener("click", abrirCarrito);
+// APERTURA DE CARRITO
+cartButton.addEventListener("click", cart);
 
-function abrirCarrito () {
-  aside.appendChild(carritoBox);
-}
+function cart() {
+  aside.className = "asideCart--open";
+  let cartOpen = document.createElement("div");
+  cartOpen.className = "asideCart__Open";
+  aside.appendChild(cartOpen);
 
-let cerrar = document.createElement("div");
-cerrar.innerHTML = "<button class='cerrado'><span class='material-symbols-outlined'>close</span></button>";
+  // CIERRE DE CARRITO
 
-carritoBox.appendChild(cerrar);
+  let cerrar = document.createElement("div");
+  cerrar.className = "asideCart__close";
+  cerrar.innerHTML = `
+<button class="cerrado"><span class='material-symbols-outlined'>close</span></button>`;
 
-cerrar.addEventListener("click", cerrado);
+  cartOpen.appendChild(cerrar);
 
-function cerrado () {
-  carritoBox.remove(cerrar);
-}
+  cerrar.addEventListener("click", cerrado);
+  // CONTENIDO DE CARRITO
 
-// DESCUENTOS
+  let cartContent = document.createElement("div");
+  cartContent.className = "asideCart__content";
+  cartOpen.append(cartContent);
 
-let codigo = prompt("Ingrese el código de descuento");
+  carrito.forEach((el) => {
+    let cartList = document.createElement("div");
+    cartList.className = "asideCart__list";
+    cartList.innerHTML = `
+  <div class="asideCart__img"><img src="${el.img}"></div>
+  <div class="asideCart__info">
+  <p>${el.nombre}</p>
+  <h3>$${el.precio}<h3>
+  </div>
+  `;
+    cartContent.appendChild(cartList);
 
-if (codigo == "FLO615V") {
-  console.log("Se aplicó un 15% de descuento en tu compra.");
-  let precioFinal = parseInt((precioTotal * 15) / 100 + precioTotal);
-  console.log(precioFinal);
-} else {
-  console.log(
-    "El código aplicado no existe. El precio total es " + precioTotal
-  );
-}
+    let minus = document.createElement("span");
+    minus.textContent = "X";
+    cartList.append(minus);
 
-// CUOTAS
-let cuotas = Number(prompt("¿En cuantas cuotas abona? 6, 12, o 24."));
+    minus.addEventListener("click", eliminarProducto);
+  });
 
-switch (cuotas) {
-  case 6:
-    console.log(
-      "Usted abonará en " +
-        cuotas +
-        " cuotas y el total será " +
-        precioTotal / 6 +
-        " por cuota."
-    );
-    break;
-  case 12:
-    console.log(
-      "Usted abonará en " +
-        cuotas +
-        " cuotas y el total será " +
-        precioTotal / 12 +
-        " por cuota."
-    );
-    break;
-  case 24:
-    console.log(
-      "Usted abonará en " +
-        cuotas +
-        " cuotas y el total será " +
-        precioTotal / 24 +
-        " por cuota."
-    );
-    break;
-  default:
-    console.log("Usted abonará en un pago, el total de " + precioTotal);
-    break;
-}
+  let asideTotal = document.createElement("div");
+  asideTotal.className = "asideCart__total";
+  cartOpen.appendChild(asideTotal);
 
-// // CONDICIONALES
+  const total = carrito.reduce((acc, el) => acc + el.precio, 0);
+  asideTotal.innerHTML = `
+  <p>Total:</p>
+  $${total}
+  `;
 
-// let cantidadFlores = Number(prompt("¿Cuántas flores llevás?"));
+  let botonComprar = document.createElement("div");
+  botonComprar.className = "asideCart__comprar";
+  cartOpen.appendChild(botonComprar);
 
-// if (cantidadFlores == 0) {
-//   console.log("no lleva flores");
-// } else if (cantidadFlores < 12) {
-//   console.log("lleva menos de 12");
-// } else if (cantidadFlores == 12) {
-//   console.log("lleva una docena");
-// } else if (cantidadFlores < 24) {
-//   console.log("lleva más de 12 pero menos de 24");
-// } else {
-//   console.log("lleva demasiadas flores");
-// }
+  botonComprar.innerHTML = `
+  <a href="../checkout.html"><button class="asideCart__llevar">comprar</button></a>
+  `;
 
-// if (color && cantidadFlores > 0) {
-//   alert("Tu ramo tiene" + cantidadFlores + "flores de color" + color);
-// } else {
-//   alert("Tu pedido está incompleto");
-// }
+  // STORAGE
+  compra("listaProductos", JSON.stringify(carrito));
+};
 
-// for(let i=0; i<1; i++) {
-//   mensaje = prompt("Ingrese un mensaje para la tarjeta del ramo.");
-//   if (mensaje=="") {
-//     console.log("usted no ha ingresado ningún mensaje.")
-//   } else{
-//     console.log("ingresaste un mensaje existosamente.");
-//   }
+const eliminarProducto = () => {
+  const found = carrito.find((el) => el.nombre);
+  carrito = carrito.filter((carritoId) => {
+    return carritoId != found;
+  });
+  cart();
+  cuentaTotal.innerHTML = carrito.length;
+};
 
-// }
-
-// let colores =[];
-
-// for(let i=0; i<3; i++) {
-//   colores[i] =prompt("ingrese un color");
-// }
+function cerrado() {
+  aside.className = "asideCart--closed";
+};
