@@ -246,7 +246,7 @@ function cart() {
   cartOpen.appendChild(botonComprar);
 
   botonComprar.innerHTML = `
-  <a href="../checkout.html"><button class="asideCart__llevar">comprar</button></a>
+  <a href="./checkout.html"><button class="asideCart__llevar">comprar</button></a>
   `;
 
   // STORAGE
