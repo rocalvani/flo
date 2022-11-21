@@ -13,7 +13,7 @@ export {
   Flor,
   Color,
   colores,
-  newIn
+  newIn,
 };
 
 

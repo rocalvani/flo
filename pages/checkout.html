@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+
+    <link rel="stylesheet" href="../css/style.css">
+    <title>La Florería | Checkout</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon.ico">
+</head>
+<body class="body">
+    <!-- Encabezado -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="../index.html"><img src="../img/logo.svg" alt=""></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#storeLink">new in store</a>
+                      </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./pages/store.html">store</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./index.html#createLink">creá tu ramo</a>
+                  </li>
+                </ul>
+                <button id="cartButton"><span class="material-symbols-outlined">
+                    shopping_cart
+                    </span></button>
+              </div>
+            </div>
+          </nav>
+      </header>
+      <aside id="asideCart">
+      </aside>
+    <main class="main">
+        <div class="main__container">
+<section id="checkout" class="checkout__section">
+   <div class="checkout__title"> mi carrito</div>
+   <article id="checkoutLista">
+    <input type="text" name="code" id="checkoutCode"> 
+  <input type="submit" value="aplicar" id="discount">
+   </article>
+   <article id="checkoutCompra">
+<form action="" id="checkoutForm">
+<label for="email">mail</label><br>
+<input type="email" name="email" id=""> <br>
+<label for="name" >nombre</label>
+<input type="text" id="name">
+
+<label for="lastname" >apellido</label>
+<input type="text" id="lastName">
+
+
+
+Forma de pago
+<button id="credit">credito</button>
+<button id="debit">debito</button>
+<label for="pays">cuotas</label>
+<select name="pays" id="selection">
+    <option value="select">seleccioná un medio de pago</option>
+</select>
+<label for="number">número</label>
+<input type="number" name="number" id="number">
+
+<label for="due">vencimiento</label>
+<input type="date" name="due" id="">
+<label for="security">código de seguridad</label>
+<input type="number" name="security" id="security">
+
+<label for="id">dni</label>
+<input type="number" name="id" id="id">
+
+
+<input type="submit" value="comprar">
+<div id="required"></div>
+</form>
+
+   </article>
+
+</section>
+
+</div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__nav">
+        navigation
+<ul>
+    <li>home</li>
+    <li>catalogo</li>
+    <li>crea tu ramo</li>
+    <li>contacto</li>
+
+</ul>
+</div>
+<div class="footer__cat">
+    catalogo
+<ul>
+<li>de interior</li>
+<li>perennes</li>
+<li>con flor</li>
+<li>con fruto</li>
+
+</ul>
+</div>
+<div class="footer__sns">
+    redes <br>
+    <a href="twitter.com"><img src="../img/tw.svg" alt="twitter"></a>
+    <a href="instagram.com"><img src="../img/ig.svg" alt="instagram"></a>
+    <a href="pinterest.com"><img src="../img/pin.svg" alt="pinterest"></a>
+</div>
+    </footer>
+    <div class="flashSale">
+        <marquee behavior="" direction="" scrolldelay="60"> <b> flash sale </b> ⚡⚡ usá el código <b> FLO615V </b>para obtener un 15% de descuento // recordá que podés pagar en <b> 6, 12 o 24 cuotas sin interés </b>todos los días. </marquee>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="../js/script.js"  type="module"></script>
+    <script src="../modules/checkout.js"  type="module"></script>
+</body>
+</html>
