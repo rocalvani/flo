@@ -1,3 +1,6 @@
+// MODULO PARA AGREGAR FUNCIONALIDAD A CREAR UN RAMO
+
+
 // IMPORT
 
 import { carrito, florPrincipal, florSecundaria, Flor, Color, colores, cart, cuentaTotal} from '../js/script.js';
@@ -156,6 +159,13 @@ colores.forEach((el) => {
 })
 
 // AGREGAR MENSAJE
+var modes = document.querySelector("#settings__menu");
+var mode_btn = document.querySelector("#settings__btn");
+
+mode_btn.onclick = () => {
+  modes.classList.toggle("settings__menu--on");
+  modes.classList.toggle("settings__menu--off");
+}
 
 let msj = document.getElementById("settings__msj--form");
 
@@ -188,21 +198,45 @@ let settingsButton = document.getElementById("settings__compra--button");
 
 settingsButton.addEventListener("click", () => {
 
-  const ramoCarrito = {
-    nombre : "ramo personalizado",
-    img : "https://i.pinimg.com/originals/c5/33/81/c53381a8780246c8f7b532be95d4610e.jpg",
-    precio : (ramo.reduce((acc, el) => acc + el.precio, 0) + cantidadTotal) * 1.21,
-    flores :[ramo[0].nombre, ramo[1].nombre],
-    mensaje: msj.value,
-    color: ramo[2].nombre,
-    cantidad : cantidad,
-  }
+  if(ramo[0], ramo[1], ramo[2]) {
 
-carrito.push(ramoCarrito);
+    Swal.fire({
+      title: 'Querés sumarlo al carrito?',
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: 'Si',
+      denyButtonText: `Todavía no terminé`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire('listo!', '', 'success')
+        const ramoCarrito = {
+          nombre : "ramo personalizado",
+          img : "https://i.pinimg.com/originals/c5/33/81/c53381a8780246c8f7b532be95d4610e.jpg",
+          precio : parseInt((ramo.reduce((acc, el) => acc + el.precio, 0) + cantidadTotal) * 1.21),
+          flores :[ramo[0].nombre, ramo[1].nombre],
+          mensaje: msj.value,
+          color: ramo[2].nombre,
+          cantidad : cantidad,
+        }
+      
+      carrito.push(ramoCarrito);
+      
+      cart();
+      
+      cuentaTotal.innerHTML = carrito.length;
+      } else if (result.isDenied) {
+        Swal.fire('Te dejo que sigas en paz', '', 'info')
+      }
+    })
 
-cart();
+  } else {
 
-cuentaTotal.innerHTML = carrito.length;
+    Swal.fire('Tu pedido no está completo. Recordá que es importante que elijas una flor principal, una flor secundaria y un color.')
+
+
+  };
+
 
 
 });

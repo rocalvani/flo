@@ -1,0 +1,5 @@
+[
+    {"nombre": "Amapola", "precio": 1750, "tipo": "perenne", "lugar": "exterior", "id": 17, "img": "./img/flores-17.png" },
+    {"nombre": "Cerezo", "precio": 6800, "tipo": "perenne", "lugar": "exterior", "id": 18, "img": "./img/flores-18.png" },
+    {"nombre": "Olivo", "precio": 3160, "tipo": "perenne", "lugar": "exterior", "id": 19, "img": "./img/flores-19.png" }
+]

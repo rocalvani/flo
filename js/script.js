@@ -1,3 +1,5 @@
+// MÓDULO CON FUNCIONALIDAD PARA EL CARRITO Y TODOS LOS OBJETOS Y ARRAYS
+
 // EXPORT
 
 export {
@@ -12,8 +14,7 @@ export {
   florSecundaria,
   Flor,
   Color,
-  colores,
-  newIn,
+  colores
 };
 
 
@@ -49,16 +50,16 @@ plantas.push(
   )
 );
 plantas.push(
-  new Planta("fittonia", 1100, "perenne", "interior", 2, "./img/flores-02.png")
+  new Planta("fittonia", 1100, "perenne", "interior", 2, "./img/flores-06.png")
 );
 plantas.push(
-  new Planta("orquídea", 5900, "perenne", "interior", 3, "./img/flores-03.png")
+  new Planta("orquídea", 5900, "perenne", "interior", 3, "./img/flores-02.png")
 );
 plantas.push(
-  new Planta("monstera", 1200, "perenne", "interior", 4, "./img/flores-04.png")
+  new Planta("monstera", 1200, "perenne", "interior", 4, "./img/flores-05.png")
 );
 plantas.push(
-  new Planta("begonia", 2600, "perenne", "interior", 5, "./img/flores-05.png")
+  new Planta("begonia", 2600, "perenne", "interior", 5, "./img/flores-03.png")
 );
 plantas.push(
   new Planta(
@@ -67,7 +68,7 @@ plantas.push(
     "perenne",
     "interior",
     6,
-    "./img/flores-06.png"
+    "./img/flores-04.png"
   )
 );
 plantas.push(
@@ -77,16 +78,16 @@ plantas.push(
   new Planta("kalanchoe", 590, "perenne", "exterior", 8, "./img/flores-08.png")
 );
 plantas.push(
-  new Planta("gazania", 170, "perenne", "exterior", 9, "./img/flores-09.png")
+  new Planta("gazania", 170, "perenne", "exterior", 9, "./img/flores-11.png")
 );
 plantas.push(
-  new Planta("geranio", 980, "perenne", "exterior", 10, "./img/flores-10.png")
+  new Planta("geranio", 980, "perenne", "exterior", 10, "./img/flores-09.png")
 );
 plantas.push(
-  new Planta("oxalis", 980, "anual", "exterior", 11, "./img/flores-11.png")
+  new Planta("oxalis", 980, "anual", "exterior", 11, "./img/flores-12.png")
 );
 plantas.push(
-  new Planta("manzanilla", 210, "anual", "exterior", 12, "./img/flores-12.png")
+  new Planta("manzanilla", 210, "anual", "exterior", 12, "./img/flores-10.png")
 );
 plantas.push(
   new Planta(
@@ -95,14 +96,14 @@ plantas.push(
     "perenne",
     "exterior",
     13,
-    "./img/flores-13.png"
+    "./img/flores-14.png"
   )
 );
 plantas.push(
-  new Planta("frutilla", 190, "perenne", "exterior", 14, "./img/flores-14.png")
+  new Planta("frutilla", 190, "perenne", "exterior", 14, "./img/flores-13.png")
 );
 plantas.push(
-  new Planta("naranjo", 1500, "perenne", "exterior", 15, "./img/flores-15.png")
+  new Planta("naranjo", 1500, "perenne", "exterior", 15, "./img/flores-16.png")
 );
 plantas.push(
   new Planta(
@@ -111,24 +112,9 @@ plantas.push(
     "perenne",
     "exterior",
     16,
-    "./img/flores-16.png"
+    "./img/flores-15.png"
   )
 );
-
-// NEW IN STORE 
-
-const newIn = [];
-
-newIn.push(new Planta ("amapola", 1750, "perenne", "exterior", 17, "./img/flores-17.png"));
-newIn.push(new Planta ("cerezo", 6800, "perenne", "exterior", 18, "./img/flores-18.png"));
-newIn.push(new Planta ("olivo", 3160, "perenne", "exterior", 19, "./img/flores-19.png"));
-
-// FILTROS
-
-const perenne = plantas.filter((el) => el.tipo.includes("perenne"));
-const anual = plantas.filter((el) => el.tipo.includes("anual"));
-const interior = plantas.filter((el) => el.lugar.includes("interior"));
-const exterior = plantas.filter((el) => el.lugar.includes("exterior"));
 
 // FLORES PARA RAMO
 class Flor {
