@@ -32,8 +32,13 @@ florPrincipal.forEach((el) => {
 
   principal.addEventListener("click", () => {
 
-    seleccion.innerHTML = `
+    seleccion.style.opacity = 0;
+
+    setTimeout(() => {
+      seleccion.innerHTML = `
     <img src="${el.img}">`;
+    seleccion.style.opacity = 1;
+    }, 500);
 
     // SUMAR FLORES
     ramoPrincipal.push({
@@ -101,8 +106,13 @@ florSecundaria.forEach((el) => {
 
   secundaria.addEventListener("click", () => {
 
-    seleccion2.innerHTML = `
+    seleccion2.style.opacity = 0;
+
+    setTimeout(() => {
+      seleccion2.innerHTML = `
     <img src="${el.img}">`;
+    seleccion2.style.opacity = 1;
+    }, 500);
 
     // SUMAR AL RAMO
 
@@ -118,9 +128,9 @@ florSecundaria.forEach((el) => {
 
       ramoCompleto();
 
-  })
+  });
 
-})
+});
 
 // SELECCIÓN COLOR Y MENSAJE
 
@@ -159,12 +169,12 @@ colores.forEach((el) => {
 })
 
 // AGREGAR MENSAJE
-var modes = document.querySelector("#settings__menu");
-var mode_btn = document.querySelector("#settings__btn");
+var textArea = document.querySelector("#settings__text");
+var textAreaBtn = document.querySelector("#settings__btn");
 
-mode_btn.onclick = () => {
-  modes.classList.toggle("settings__menu--on");
-  modes.classList.toggle("settings__menu--off");
+textAreaBtn.onclick = () => {
+  textArea.classList.toggle("settings__text--on");
+  textArea.classList.toggle("settings__text--off");
 }
 
 let msj = document.getElementById("settings__msj--form");

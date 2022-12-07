@@ -98,7 +98,7 @@
          <button id="settings__btn">Click me</button>
         </article>
         <article id="settings__msj">
-          <div id="settings__menu" class="settings__menu settings__menu--off">
+          <div id="settings__text" class="settings__text settings__text--off">
             <form action="">
               <textarea name="" id="settings__msj--form" placeholder="Dejá tu mensaje acá"></textarea>
             </form>
@@ -121,11 +121,12 @@
             <div class="main__contactForm--side"><label for="nombre">Dejanos tu nombre:</label> <br>
                 <input type="text" name="nombre" placeholder="Juan"></div>
             <div class="main__contactForm--side"><label for="email">Y tu email:</label> <br>
-                <input type="email" name="email" placeholder="abc@gmail.com"></div>
+                <input id="contact__mail" type="email" name="email" placeholder="abc@gmail.com"></div>
             <div class="main__contactForm--sideB"><label for="mesaje">Contanos cuál es tu consulta:</label><br>
-                <textarea name="" id="" rows="4" placeholder="Breve descripción de tu consulta"></textarea><br><br>
-            <input type="submit" value="Enviar"></div>
+                <textarea id="contact__msg" name="" rows="4" placeholder="Breve descripción de tu consulta"></textarea><br><br>
+            <input type="submit" value="Enviar" id="prevent"></div>
         </form>
+        <div id="contactError" class="contactError__on"></div>
        </div>
     </article>
     <article class="main__map">
@@ -171,6 +172,7 @@
     <script src="./js/script.js" type="module"></script>
     <script src="./modules/create.js" type="module"></script>
     <script src="./modules/new.js" type="module"></script>
+    <script src="./modules/contact.js" type="module"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

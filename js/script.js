@@ -179,7 +179,10 @@ let aside = document.getElementById("asideCart");
 cartButton.addEventListener("click", cart);
 
 function cart() {
-  aside.className = "asideCart--open";
+  
+    aside.className = "asideCart--open";
+  
+
   let cartOpen = document.createElement("div");
   cartOpen.className = "asideCart__Open";
   aside.appendChild(cartOpen);
@@ -251,5 +254,10 @@ const eliminarProducto = () => {
 };
 
 function cerrado() {
-  aside.className = "asideCart--closed";
+  aside.className = "asideCart--await";
+  
+  setTimeout(() => {
+    aside.className = "asideCart--closed"
+  }, 500);
+
 };

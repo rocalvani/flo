@@ -71,7 +71,7 @@ container.appendChild(asideTotal);
 let total = parseInt(carrito.reduce((acc, el) => acc + el.precio, 0))
 asideTotal.innerHTML = `
   <p>Total:</p>
-  $${total}
+  <p class="checkout__total--bold">$${total}</p>
   `;
 
 // DESCUENTO
@@ -80,27 +80,46 @@ let aplicar = document.getElementById("checkout__discount");
 aplicar.addEventListener("click", descuento);
 
 function descuento(e) {
-  let codebox = document.getElementById("checkout__codeBox");
+  let codeBox = document.getElementById("checkout__codeBox");
   let code = document.getElementById("checkout__code").value;
 
-  if (code == "FLO615V" || code == "flo615v" || code == "FLO615v") {
+aplicar.value = `Esperá un segundo`;
+
+  setTimeout(() => {if (code == "FLO615V" || code == "flo615v" || code == "FLO615v") {
     total = parseInt(total / 1.15);
     asideTotal.innerHTML = `
   <p>Total:</p>
-  $${total}
+  <p class="checkout__total--bold">$${total}</p>
   `;
-  codebox.innerHTML= `
+  codeBox.innerHTML= `
+  <div id="checkout__codeBox--approved">
   <p>Código de descuento:</b> 
   <p><b>${code}</b></p>
+  </div>
   `;
  
   } else {
     let codeError = document.createElement("div");
+    codeError.className = "checkout__error--on";
+
     codeError.innerHTML = `
     <p>El código ingresado no es válido, intentá con otro. </p>`;
 
-    codebox.append(codeError);
-  }
+    codeBox.append(codeError);
+
+    setTimeout(() => {
+      codeError.className = "checkout__error--off"; 
+
+    setTimeout(() => {
+      codeError.style.display = "none";
+      aplicar.value = `Aplicar`;
+    }, 1500)}, 
+
+    2000);
+
+  }}, 
+
+  1000)
 
   e.preventDefault();
 }
@@ -174,7 +193,10 @@ if (name.value === "" || lastName.value === "" || id.value === "" || number.valu
     title: "¡Tu compra fue aprobada!",
     text: "En los próximos días te contactaremos para que la retires en nuestro local.",
     icon: "success",
-    button: "Aceptar",
+    button: "Aceptar"}).then(okay => {
+      if (okay) {
+       window.location.href = "./index.html";
+     }
   });
 
   localStorage.clear();
