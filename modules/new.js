@@ -6,7 +6,7 @@
 import {aside, plantas, carrito, cart, cerrado, cuentaTotal, eliminarProducto} from '../js/script.js';
 
 
-  fetch("./data.json")
+  fetch("../data.json")
   .then ( (res) => res.json())
   .then ( (data) => {
     data.forEach((el) => {
