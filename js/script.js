@@ -6,7 +6,6 @@ export {
   aside,
   carrito,
   plantas,
-  cart,
   eliminarProducto,
   cerrado,
   cuentaTotal,
@@ -14,9 +13,11 @@ export {
   florSecundaria,
   Flor,
   Color,
-  colores
+  colores,
+  compra,
 };
 
+import {cart} from "./cart.js";
 
 // BÁSICOS
 const compra = (clave, valor) => localStorage.setItem(clave, valor);
@@ -33,9 +34,8 @@ class Planta {
     this.img = img;
   }
   sumaIva() {
-    this.precio = this.precio * 1.21;
+    this.precio = parseInt(this.precio * 1.21);
   }
-  
 }
 
 const plantas = [];
@@ -46,20 +46,20 @@ plantas.push(
     "perenne",
     "interior",
     1,
-    "./img/flores-01.png"
+    "flores-01.png"
   )
 );
 plantas.push(
-  new Planta("fittonia", 1100, "perenne", "interior", 2, "./img/flores-06.png")
+  new Planta("fittonia", 1100, "perenne", "interior", 2, "flores-06.png")
 );
 plantas.push(
-  new Planta("orquídea", 5900, "perenne", "interior", 3, "./img/flores-02.png")
+  new Planta("orquídea", 5900, "perenne", "interior", 3, "flores-02.png")
 );
 plantas.push(
-  new Planta("monstera", 1200, "perenne", "interior", 4, "./img/flores-05.png")
+  new Planta("monstera", 1200, "perenne", "interior", 4, "flores-05.png")
 );
 plantas.push(
-  new Planta("begonia", 2600, "perenne", "interior", 5, "./img/flores-03.png")
+  new Planta("begonia", 2600, "perenne", "interior", 5, "flores-03.png")
 );
 plantas.push(
   new Planta(
@@ -68,26 +68,26 @@ plantas.push(
     "perenne",
     "interior",
     6,
-    "./img/flores-04.png"
+    "flores-04.png"
   )
 );
 plantas.push(
-  new Planta("lavanda", 190, "perenne", "exterior", 7, "./img/flores-07.png")
+  new Planta("lavanda", 190, "perenne", "exterior", 7, "flores-07.png")
 );
 plantas.push(
-  new Planta("kalanchoe", 590, "perenne", "exterior", 8, "./img/flores-08.png")
+  new Planta("kalanchoe", 590, "perenne", "exterior", 8, "flores-08.png")
 );
 plantas.push(
-  new Planta("gazania", 170, "perenne", "exterior", 9, "./img/flores-11.png")
+  new Planta("gazania", 170, "perenne", "exterior", 9, "flores-11.png")
 );
 plantas.push(
-  new Planta("geranio", 980, "perenne", "exterior", 10, "./img/flores-09.png")
+  new Planta("geranio", 980, "perenne", "exterior", 10, "flores-09.png")
 );
 plantas.push(
-  new Planta("oxalis", 980, "anual", "exterior", 11, "./img/flores-12.png")
+  new Planta("oxalis", 980, "anual", "exterior", 11, "flores-12.png")
 );
 plantas.push(
-  new Planta("manzanilla", 210, "anual", "exterior", 12, "./img/flores-10.png")
+  new Planta("manzanilla", 210, "anual", "exterior", 12, "flores-10.png")
 );
 plantas.push(
   new Planta(
@@ -96,14 +96,14 @@ plantas.push(
     "perenne",
     "exterior",
     13,
-    "./img/flores-14.png"
+    "flores-14.png"
   )
 );
 plantas.push(
-  new Planta("frutilla", 190, "perenne", "exterior", 14, "./img/flores-13.png")
+  new Planta("frutilla", 190, "perenne", "exterior", 14, "flores-13.png")
 );
 plantas.push(
-  new Planta("naranjo", 1500, "perenne", "exterior", 15, "./img/flores-16.png")
+  new Planta("naranjo", 1500, "perenne", "exterior", 15, "flores-16.png")
 );
 plantas.push(
   new Planta(
@@ -112,7 +112,7 @@ plantas.push(
     "perenne",
     "exterior",
     16,
-    "./img/flores-15.png"
+    "flores-15.png"
   )
 );
 
@@ -178,86 +178,22 @@ let aside = document.getElementById("asideCart");
 // APERTURA DE CARRITO
 cartButton.addEventListener("click", cart);
 
-function cart() {
-  
-    aside.className = "asideCart--open";
-  
+function eliminarProducto(product) {
+  let exist = carrito.filter((el) => el.nombre != product.nombre);
 
-  let cartOpen = document.createElement("div");
-  cartOpen.className = "asideCart__Open";
-  aside.appendChild(cartOpen);
+  // ACTUALIZACIÓN DE CARRITO
 
-  // CIERRE DE CARRITO
-
-  let cerrar = document.createElement("div");
-  cerrar.className = "asideCart__close";
-  cerrar.innerHTML = `
-<button class="cerrado"><span class='material-symbols-outlined'>close</span></button>`;
-
-  cartOpen.appendChild(cerrar);
-
-  cerrar.addEventListener("click", cerrado);
-  // CONTENIDO DE CARRITO
-
-  let cartContent = document.createElement("div");
-  cartContent.className = "asideCart__content";
-  cartOpen.append(cartContent);
-
-  carrito.forEach((el) => {
-    let cartList = document.createElement("div");
-    cartList.className = "asideCart__list";
-    cartList.innerHTML = `
-  <div class="asideCart__img"><img src="${el.img}"></div>
-  <div class="asideCart__info">
-  <p>${el.nombre}</p>
-  <h3>$${el.precio}<h3>
-  </div>
-  `;
-    cartContent.appendChild(cartList);
-
-    let minus = document.createElement("span");
-    minus.textContent = "X";
-    cartList.append(minus);
-
-    minus.addEventListener("click", eliminarProducto);
-  });
-
-  let asideTotal = document.createElement("div");
-  asideTotal.className = "asideCart__total";
-  cartOpen.appendChild(asideTotal);
-
-  const total = carrito.reduce((acc, el) => acc + el.precio, 0);
-  asideTotal.innerHTML = `
-  <p>Total:</p>
-  $${total}
-  `;
-
-  let botonComprar = document.createElement("div");
-  botonComprar.className = "asideCart__comprar";
-  cartOpen.appendChild(botonComprar);
-
-  botonComprar.innerHTML = `
-  <a href="./checkout.html"><button class="asideCart__llevar">comprar</button></a>
-  `;
-
-  // STORAGE
-  compra("listaProductos", JSON.stringify(carrito));
-};
-
-const eliminarProducto = () => {
-  const found = carrito.find((el) => el.nombre);
-  carrito = carrito.filter((carritoId) => {
-    return carritoId != found;
-  });
+  carrito = exist;
   cart();
   cuentaTotal.innerHTML = carrito.length;
 };
 
-function cerrado() {
-  aside.className = "asideCart--await";
-  
-  setTimeout(() => {
-    aside.className = "asideCart--closed"
-  }, 500);
+// CIERRE DE ASIDE
 
+function cerrado() {
+  aside.className = "asideCart--await  animate__animated animate__fadeOutRight";
+
+  setTimeout(() => {
+    aside.className = "asideCart--closed";
+  }, 500);
 };
