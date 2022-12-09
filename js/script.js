@@ -15,6 +15,7 @@ export {
   Color,
   colores,
   compra,
+
 };
 
 import {cart} from "./cart.js";
@@ -22,6 +23,7 @@ import {cart} from "./cart.js";
 // BÁSICOS
 const compra = (clave, valor) => localStorage.setItem(clave, valor);
 let carrito = JSON.parse(localStorage.getItem("listaProductos")) || [];
+
 
 // PRODUCTOS STORE
 class Planta {

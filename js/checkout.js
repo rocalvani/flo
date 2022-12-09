@@ -6,12 +6,17 @@ import {
   aside,
   plantas,
   carrito,
-  cart,
   cerrado,
   cuentaTotal,
   eliminarProducto,
   compra,
 } from './script.js';
+
+import {cart} from './cart.js'
+
+// BÁSICO 
+
+let final = parseInt(carrito.reduce((acc, el) => acc + el.precio, 0));
 
 // CUENTA TOTAL
 
@@ -60,7 +65,7 @@ const render = (arr) => {
     checkoutEl.className = "checkout__el";
   
     checkoutEl.innerHTML = `
-      <div class="checkout__el--img"><img src=".${el.img}"></div>
+      <div class="checkout__el--img"><img src="../img/${el.img}"></div>
       <div class="checkout__el--product">
       <p>${el.nombre}</p>
       <h3>$${el.precio}<h3>
@@ -89,7 +94,7 @@ el.precio = el.precio + precioIndividual;
   quantity.innerHTML = `${el.amount} u.`;
 
   checkoutEl.innerHTML = `
-      <div class="checkout__el--img"><img src=".${el.img}"></div>
+      <div class="checkout__el--img"><img src="../img/${el.img}"></div>
       <div class="checkout__el--product">
       <p>${el.nombre}</p>
       <h3>$${el.precio}<h3>
@@ -99,9 +104,12 @@ el.precio = el.precio + precioIndividual;
       // MUESTRA DEL TOTAL
       showTotal();
 
+      final = parseInt(carrito.reduce((acc, el) => acc + el.precio, 0));
+
 
  // STORAGE 
  compra("listaProductos", JSON.stringify(carrito));
+
 });
 
 // BOTON DE RESTA Y SU FUNCIÓN
@@ -122,7 +130,7 @@ el.precio = el.precio - precioIndividual;
     quantity.innerHTML = `${el.amount} u.`;
 
   checkoutEl.innerHTML = `
-  <div class="checkout__el--img"><img src=".${el.img}"></div>
+  <div class="checkout__el--img"><img src="../img/${el.img}"></div>
   <div class="checkout__el--product">
   <p>${el.nombre}</p>
   <h3>$${el.precio}<h3>
@@ -133,9 +141,7 @@ el.precio = el.precio - precioIndividual;
   showTotal();
   } ;
 
-  // MUESTRA DEL TOTAL
-  showTotal();
-
+  final = parseInt(carrito.reduce((acc, el) => acc + el.precio, 0));
 
 // STORAGE 
 compra("listaProductos", JSON.stringify(carrito));
@@ -165,8 +171,12 @@ function descuento(e) {
 aplicar.value = `Esperá un segundo`;
 
   setTimeout(() => {if (code == "FLO615V" || code == "flo615v" || code == "FLO615v") {
+
+    // CUENTA Y MUESTRA EL DESCUENTO 
+
     let total = parseInt(carrito.reduce((acc, el) => acc + el.precio, 0));
     total = parseInt(total / 1.15);
+
     asideTotal.innerHTML = `
   <p>Total:</p>
   <p class="checkout__total--bold">$${total}</p>
@@ -177,6 +187,10 @@ aplicar.value = `Esperá un segundo`;
   <p><b>${code}</b></p>
   </div>
   `;
+
+  // FUNCION DE PAGO CON TARJETA
+
+  final = total;
  
   } else {
     let codeError = document.createElement("div");
@@ -206,29 +220,37 @@ aplicar.value = `Esperá un segundo`;
 
 
 // CRÉDITO O DÉBITO
-
 let credit = document.getElementById("credit");
 let debit = document.getElementById("debit");
 let selection = document.getElementById("selection");
 
+function cardPayment() {
+
 credit.addEventListener("click", credits);
 debit.addEventListener("click", debits);
 
+let seisCuotas = parseInt(final/6);
+let doceCuotas = parseInt(final/12);
+let veinticuatroCuotas = parseInt(final/24);
+
 function credits() {
   selection.innerHTML = `
-<option value="6">6 cuotas - $${total / 6}</option>
-<option value="12">12 cuotas - $${total / 12}</option>
-<option value="24">24 cuotas - $${total / 24}</option>`;
+<option value="6">6 cuotas - $${seisCuotas}</option>
+<option value="12">12 cuotas - $${doceCuotas}</option>
+<option value="24">24 cuotas - $${veinticuatroCuotas}</option>`;
 credit.style.opacity = "1";
 debit.style.opacity = "0.5"
 }
 
 function debits() {
   selection.innerHTML = `
-    <option value="1">1 pago - $${total}</option>`;
+    <option value="1">1 pago - $${final}</option>`;
     credit.style.opacity = "0.5";
     debit.style.opacity = "1";
 }
+}
+
+cardPayment();
 
 // SUBMIT
 let formButton = document.getElementById("checkout__submit");
