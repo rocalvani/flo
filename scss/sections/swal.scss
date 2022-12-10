@@ -1,0 +1,57 @@
+.swal2-popup {
+    padding: 2rem;
+  }
+  
+  .swal2-title, .swal-text{
+    font-family: poppins;
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-align:center;
+  }
+  
+  .swal2-actions {
+    margin:0;
+    margin-top: 1rem;
+  }
+  
+  .swal2-styled.swal2-confirm, .swal2-styled.swal2-deny {
+    width: 48%;
+    background-color: #8a9d93;
+    border:0;
+    border-radius: 0;
+    transition: .5s;
+    font-size: 0.8rem;
+  }
+  
+  .swal2-styled.swal2-confirm:hover, .swal2-styled.swal2-deny:hover {
+    border: 0;
+    background-color: #daddce;
+    transition: .5s;
+  }
+  
+  .swal2-loader {
+    border:0;
+  }
+
+  .swal-title {
+    font-size: 2rem;
+    font-family: poppins;
+  }
+
+  .swal-button--confirm {
+    background-color:  #8a9d93;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .swal-button-container {
+    width: 100%;
+  }
+
+  .swal-button:active  .swal-button:not([disabled]):hover {
+    background-color:#daddce;
+  }
+
+  .swal-button:not([disabled]):hover {
+    background-color: #daddce;
+  }

@@ -11,9 +11,10 @@ contactBtn.addEventListener("click", (e) => {
     requiredInfo.className = "contactError__on";
 
     if (contactMail.value != "" && contactMsg.value != "") {
-        console.log("success")
 Swal.fire('Tu mensaje fue enviado y recibirás una respuesta en los próximos 7 días.')
-    } else {
+contactMail.style.borderColor = "";
+        contactMsg.style.borderColor = "";    
+} else {
         contactMail.style.borderColor = "red";
         contactMsg.style.borderColor = "red";
 

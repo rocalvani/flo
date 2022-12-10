@@ -50,13 +50,15 @@ function cart() {
     <div class="asideCart__img"><img src="../img/${el.img}"></div>
     <div class="asideCart__info">
     <p>${el.nombre}</p>
-    <h3>$${el.precio}<h3>
-    <h3>cantidad: ${el.amount}<h3>
+    <h3>$${el.precio}</h3>
+    <p>cantidad: ${el.amount}</p>
     </div>
     `;
       cartContent.appendChild(cartList);
   
-      let minus = document.createElement("span");
+      let minus = document.createElement("div");
+      minus.className = "asideCart__minus";
+
       minus.innerHTML = `<span class="material-symbols-outlined">
       delete
       </span>`;
@@ -74,7 +76,7 @@ function cart() {
     const total = carrito.reduce((acc, el) => acc + el.precio, 0);
     asideTotal.innerHTML = `
     <p>Total:</p>
-    $${total}
+<b>$${total}</b>
     `;
   
     let botonComprar = document.createElement("div");

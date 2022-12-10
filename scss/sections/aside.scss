@@ -1,0 +1,120 @@
+.asideCart {
+    &--closed { 
+      display: none;
+  }
+  &--await {
+    opacity:0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    width: 25%;
+    height: 100vh;
+  }
+  &--open {
+    opacity:1;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    width: 25%;
+    height: 100vh;
+    background-color: white;
+  }
+    &__Open {
+      position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    
+    }
+    &__content {
+      padding: 2vw;
+    display: flex;
+    flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      height: 70vh;
+      overflow: auto;
+      border-bottom: 1px solid #ccc;
+      margin-top: 9vh;
+  }
+  &__close {
+    border-radius: 100%;
+    aspect-ratio: 1/1;
+    padding: 0;
+    border: 1px solid #bccac7;
+    background-color: white;
+    color: #bccac7;
+    position: absolute;
+    right: 0;
+    width: 2rem;
+    margin: 2vw;
+    text-align:center;
+    span {
+      font-size: 0.8rem;
+      padding-top: 0.5rem;
+    }
+    button {
+      background: transparent;
+      border: 0;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-flow: row wrap;
+    text-transform: uppercase;
+    border-bottom: 1px solid gray; 
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;  
+  }
+  &__list:last-child {
+    border:0;
+  }
+  &__img {
+    aspect-ratio: 1/1;
+    width: 30%;
+    margin-right: 3%;
+    img {width: 100%;}
+  }
+  &__info {
+    width: 50%;
+    h3 { 
+      font-size: 1rem;
+      line-height: 1rem;
+      font-weight: 400;
+    }
+    p {
+      font-size: 0.8rem;
+      color: gray;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.1rem;
+    }
+  }
+  &__minus {
+    width: 10%;
+  }
+  &__total {
+    display: flex; 
+    flex-flow: row wrap;
+    font-size: 1rem;
+    text-transform:uppercase;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2vw;
+  }
+  &__llevar {
+    width: 85%;
+    position:absolute;
+    bottom: 2rem;
+    border: 0px;
+    text-transform:uppercase;
+    font-size: 0.9rem;
+    padding: 1rem;
+    margin: 0vw 2vw;
+  }
+  }

@@ -29,8 +29,9 @@ shop.forEach((el) => {
     grid.className = "storeGrid__card";
   
     grid.innerHTML = `
-   <img src="../img/${el.img}">
-   <div class="storeGrid__info">
+    <div class="storeGrid__img"><img src="../img/${el.img}">
+   </div>
+    <div class="storeGrid__info">
    <p class="storeGrid__nombre">${el.nombre}</p>
    <p class="storeGrid__precio">$${el.precio}</p>
    </div>`;
@@ -82,13 +83,23 @@ const exterior = shop.filter((el) => el.lugar.includes("exterior"));
 let perenneBtn = document.getElementById("store__tags--perenne");
 
 perenneBtn.addEventListener("click", () => {
+
+  //COLOR DE BOTONES
+  perenneBtn.style.backgroundColor = "#bccac7";
+  anualBtn.style.backgroundColor = "transparent";
+ interiorBtn.style.backgroundColor = "transparent";
+  exteriorBtn.style.backgroundColor = "transparent";
+  todo.style.backgroundColor = "transparent";
+
+  //RENDER
   storeGrid.innerHTML = "";
   perenne.forEach((el) => {
     let grid = document.createElement("div");
     grid.className = "storeGrid__card";
   
     grid.innerHTML = `
-   <img src=".${el.img}">
+    <div class="storeGrid__img"><img src="../img/${el.img}">
+    </div>
    <div class="storeGrid__info">
    <p class="storeGrid__nombre">${el.nombre}</p>
    <p class="storeGrid__precio">$${el.precio}</p>
@@ -135,13 +146,22 @@ perenneBtn.addEventListener("click", () => {
 let anualBtn = document.getElementById("store__tags--anual");
 
 anualBtn.addEventListener("click", () => {
+    //COLOR DE BOTONES
+    perenneBtn.style.backgroundColor = "transparent";
+    anualBtn.style.backgroundColor = "#bccac7";
+   interiorBtn.style.backgroundColor = "transparent";
+    exteriorBtn.style.backgroundColor = "transparent";
+    todo.style.backgroundColor = "transparent";
+  
+    //RENDER
   storeGrid.innerHTML = "";
   anual.forEach((el) => {
     let grid = document.createElement("div");
     grid.className = "storeGrid__card";
   
     grid.innerHTML = `
-   <img src=".${el.img}">
+    <div class="storeGrid__img"><img src="../img/${el.img}">
+   </div>
    <div class="storeGrid__info">
    <p class="storeGrid__nombre">${el.nombre}</p>
    <p class="storeGrid__precio">$${el.precio}</p>
@@ -188,13 +208,23 @@ if (foundIn) {
 let interiorBtn = document.getElementById("store__tags--interior");
 
 interiorBtn.addEventListener("click", () => {
+  
+  //COLOR DE BOTONES
+  perenneBtn.style.backgroundColor = "transparent";
+  anualBtn.style.backgroundColor = "transparent";
+ interiorBtn.style.backgroundColor = "#bccac7";
+  exteriorBtn.style.backgroundColor = "transparent";
+  todo.style.backgroundColor = "transparent";
+
+  //RENDER
   storeGrid.innerHTML = "";
   interior.forEach((el) => {
     let grid = document.createElement("div");
     grid.className = "storeGrid__card";
   
     grid.innerHTML = `
-   <img src=".${el.img}">
+    <div class="storeGrid__img"><img src="../img/${el.img}">
+    </div>
    <div class="storeGrid__info">
    <p class="storeGrid__nombre">${el.nombre}</p>
    <p class="storeGrid__precio">$${el.precio}</p>
@@ -241,13 +271,23 @@ if (foundIn) {
 let exteriorBtn = document.getElementById("store__tags--exterior");
 
 exteriorBtn.addEventListener("click", () => {
+
+  //COLOR DE BOTONES
+  perenneBtn.style.backgroundColor = "transparent";
+  anualBtn.style.backgroundColor = "transparent";
+ interiorBtn.style.backgroundColor = "transparent";
+  exteriorBtn.style.backgroundColor = "#bccac7";
+  todo.style.backgroundColor = "transparent";
+
+  //RENDER
   storeGrid.innerHTML = "";
   exterior.forEach((el) => {
     let grid = document.createElement("div");
     grid.className = "storeGrid__card";
   
     grid.innerHTML = `
-   <img src=".${el.img}">
+    <div class="storeGrid__img"><img src="../img/${el.img}">
+    </div>
    <div class="storeGrid__info">
    <p class="storeGrid__nombre">${el.nombre}</p>
    <p class="storeGrid__precio">$${el.precio}</p>
@@ -293,10 +333,17 @@ exteriorBtn.addEventListener("click", () => {
 let todo = document.getElementById("store__tags--todo");
 
 todo.addEventListener("click", () => {
+
+  //COLOR DE BOTONES
+  perenneBtn.style.backgroundColor = "transparent";
+  anualBtn.style.backgroundColor = "transparent";
+ interiorBtn.style.backgroundColor = "transparent";
+  exteriorBtn.style.backgroundColor = "transparent";
+  todo.style.backgroundColor = "#bccac7";
+
+  //RENDER
   storeGrid.innerHTML = "";
   shop.forEach((el) => {
-    // IVA
-    el.sumaIva();
   
     // STORE CONTENT
   
@@ -304,7 +351,8 @@ todo.addEventListener("click", () => {
     grid.className = "storeGrid__card";
   
     grid.innerHTML = `
-   <img src=".${el.img}">
+    <div class="storeGrid__img"><img src="../img/${el.img}">
+    </div>
    <div class="storeGrid__info">
    <p class="storeGrid__nombre">${el.nombre}</p>
    <p class="storeGrid__precio">$${el.precio}</p>

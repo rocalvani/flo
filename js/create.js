@@ -6,12 +6,6 @@
 import { carrito, florPrincipal, florSecundaria, Flor, Color, colores, cuentaTotal} from './script.js';
 import {cart} from "./cart.js";
 
-// CHECKED
-let checked = document.createElement("div");
-checked.innerHTML = "Y";
-checked.style.opacity = 0;
-
-
 // CREACION DE RAMO
 
 const ramoPrincipal = [];
@@ -40,19 +34,24 @@ florPrincipal.forEach((el) => {
   settingsPrincipal.appendChild(principal);
 
   let check = document.createElement("div");
-  check.innerHTML = "y";
-  check.style.opacity = 0;
-
   principal.append(check);
 
   principal.addEventListener("click", () => {
 
     // ANIMACION DE CHECKED
 
-    check.style.opacity = 1;
+    check.innerHTML = `<div class="selectSecundaria--checked animate__animated animate__fadeIn">
+    <span class="material-symbols-outlined">
+    done
+    </span>
+    </div>`;
 
     setTimeout(() => {
-      check.style.opacity = 0;
+      check.innerHTML = `<div class="selectSecundaria--checked animate__animated animate__fadeOut">
+      <span class="material-symbols-outlined">
+      done
+      </span>
+      </div>`;
     }, 1000);
 
     // MODIFICACION DE COLOR DE FONDO
@@ -97,7 +96,7 @@ seis.addEventListener("click", () => {
   doce.className = "settings__cantidad--inactive";
   dieciocho.className = "settings__cantidad--inactive";
   ramoPrincipal.forEach((el) => {
-    cantidadTotal = el.precio * 6;
+    cantidadTotal = parseInt(el.precio * 6);
     cantidad = 6;
   })
   ramoCompleto();
@@ -109,7 +108,7 @@ doce.addEventListener("click", () => {
   dieciocho.className = "settings__cantidad--inactive";
 
   ramoPrincipal.forEach((el) => {
-    cantidadTotal = el.precio * 12;
+    cantidadTotal = parseInt(el.precio * 12);
     cantidad = 12;
   })
   ramoCompleto();
@@ -120,7 +119,7 @@ dieciocho.addEventListener("click", () => {
   doce.className = "settings__cantidad--inactive";
   dieciocho.className = "settings__cantidad--active";
   ramoPrincipal.forEach((el) => {
-    cantidadTotal = el.precio * 18;
+    cantidadTotal = parseInt(el.precio * 18);
     cantidad = 18;
   })
   ramoCompleto();
@@ -142,9 +141,6 @@ florSecundaria.forEach((el) => {
   settingsSecundario.appendChild(secundaria);
 
   let check = document.createElement("div");
-  check.innerHTML = "y";
-  check.style.opacity = 0;
-
   secundaria.append(check);
 
   // SELECCION
@@ -153,10 +149,18 @@ florSecundaria.forEach((el) => {
 
     // ANIMACION DE CHECKED
 
-    check.style.opacity = 1;
+    check.innerHTML = `<div class="selectSecundaria--checked animate__animated animate__fadeIn">
+    <span class="material-symbols-outlined">
+    done
+    </span>
+    </div>`;
 
     setTimeout(() => {
-      check.style.opacity = 0;
+      check.innerHTML = `<div class="selectSecundaria--checked animate__animated animate__fadeOut">
+      <span class="material-symbols-outlined">
+      done
+      </span>
+      </div>`;
     }, 1000);
 
     // MODIFICACION DE COLOR DE FONDO
@@ -213,11 +217,21 @@ colores.forEach((el) => {
 
     // ANIMACIÓN DE BOTÓN
 
-    colorBoton.style.width = "100px";
+    colorBoton.innerHTML =`
+    <div class="settings__color--checked animate__animated animate__fadeIn">
+    <span class="material-symbols-outlined">
+    done
+    </span>
+    </div>`;
 
     setTimeout(() => {
-      colorBoton.style.width = "";
-    }, 1000);
+      colorBoton.innerHTML =`
+    <div class="settings__color--checked animate__animated animate__fadeOut">
+    <span class="material-symbols-outlined">
+    done
+    </span>
+    </div>`;
+    }, 1500);
 
     //CAMBIO DE COLOR DE FONDO 
     
@@ -240,19 +254,38 @@ colores.forEach((el) => {
 var textArea = document.querySelector("#settings__text");
 var textAreaBtn = document.querySelector("#settings__btn");
 
+if (textArea.className == "settings__text settings__text--off") {
+  setTimeout(() => {
+    textArea.style.display = "none";
+  }, 500);
+}
+
 textAreaBtn.onclick = () => {
   textArea.classList.toggle("settings__text--on");
   textArea.classList.toggle("settings__text--off");
+  
+  if (textArea.className == "settings__text settings__text--off") {
+    setTimeout(() => {
+      textArea.style.display = "none";
+    }, 600);
+    textAreaBtn.style.backgroundColor = "";
+  } else {
+    textArea.style.display = "block"; 
+    textAreaBtn.style.backgroundColor = "white";
+  }
 }
 
 let msj = document.getElementById("settings__msj--form");
 
 // CUENTA TOTAL
-
-let settingsTotal = document.getElementById("settings__compra--total");
-
 let ramoTotal = 0;
 let ramo;
+
+let settingsTotal = document.getElementById("settings__compra--total");
+settingsTotal.innerHTML = `
+   <p>Total: </p>
+   <p id="settings__compra--num">$${ramoTotal} </p>
+  `
 
 function ramoCompleto() {
   
@@ -262,11 +295,11 @@ function ramoCompleto() {
       ramo = ramoFlores.concat(detail);
     } else {ramo = ramoFlores}
 
-    ramoTotal = (ramo.reduce((acc, el) => acc + el.precio, 0) + cantidadTotal) * 1.21;
+    ramoTotal = parseInt((ramo.reduce((acc, el) => acc + el.precio, 0) + cantidadTotal) * 1.21);
     
     settingsTotal.innerHTML = `
    <p>Total: </p>
-   <p>$${ramoTotal} </p>
+   <p id="settings__compra--num">$${ramoTotal} </p>
   `
   }
 }
@@ -279,7 +312,7 @@ settingsButton.addEventListener("click", () => {
   if(ramo[0], ramo[1], ramo[2]) {
 
     Swal.fire({
-      title: 'Querés sumarlo al carrito?',
+      title: '¿Querés sumarlo al carrito?',
       showDenyButton: true,
       showCancelButton: false,
       confirmButtonText: 'Si',
@@ -311,7 +344,7 @@ settingsButton.addEventListener("click", () => {
 
   } else {
 
-    Swal.fire('Tu pedido no está completo. Recordá que es importante que elijas una flor principal, una flor secundaria y un color.')
+    Swal.fire('<b style="font-size: 1.2rem;">Tu pedido no está completo.</b><br><br> Recordá que es importante que elijas una flor principal, una flor secundaria y un color.')
 
 
   };

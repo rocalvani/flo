@@ -73,14 +73,18 @@ const render = (arr) => {
       `;
     checkoutList.append(checkoutEl);
 
+    let counter = document.createElement("div");
+    counter.className ="checkout__el--counter"
+    checkoutEl.append(counter);
+
     let quantity = document.createElement("div");
 
     quantity.innerHTML = `${el.amount} u.`;
-    checkoutList.append(quantity);
+    counter.append(quantity);
 
 let addUp = document.createElement("button");
 addUp.innerHTML = `+`
-checkoutList.append(addUp);
+counter.append(addUp);
 
 addUp.addEventListener("click", () => {
 
@@ -100,6 +104,7 @@ el.precio = el.precio + precioIndividual;
       <h3>$${el.precio}<h3>
       </div>
       `;
+      checkoutEl.append(counter);
 
       // MUESTRA DEL TOTAL
       showTotal();
@@ -116,7 +121,7 @@ el.precio = el.precio + precioIndividual;
 
 let substract = document.createElement("button");
 substract.innerHTML = `-`
-checkoutList.append(substract);
+counter.append(substract);
 
 substract.addEventListener("click", () => {
 
@@ -136,6 +141,7 @@ el.precio = el.precio - precioIndividual;
   <h3>$${el.precio}<h3>
   </div>
   `;
+  checkoutEl.append(counter);
 
   // MUESTRA DEL TOTAL
   showTotal();
@@ -297,7 +303,7 @@ if (name.value === "" || lastName.value === "" || id.value === "" || number.valu
     icon: "success",
     button: "Aceptar"}).then(okay => {
       if (okay) {
-       window.location.href = "./index.html";
+       window.location.href = "../index.html";
      }
   });
 
