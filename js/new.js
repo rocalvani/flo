@@ -26,7 +26,9 @@ fetch("./json/data.json")
       gridNew.className = "newIn__card";
 
       gridNew.innerHTML = `
-     <img src="./img/${el.img}">
+  <div class="newIn__img">
+  <img src="./img/${el.img}">
+  </div>
      <div class="newIn__info">
      <p class="newIn__info--nombre">${el.nombre}</p>
      <p class="newIn__info--precio">$${el.precio}</p>

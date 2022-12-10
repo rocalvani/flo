@@ -239,13 +239,16 @@ let seisCuotas = parseInt(final/6);
 let doceCuotas = parseInt(final/12);
 let veinticuatroCuotas = parseInt(final/24);
 
+debit.style.opacity = "0.5";
+credit.style.opacity = "0.5";
+
 function credits() {
   selection.innerHTML = `
 <option value="6">6 cuotas - $${seisCuotas}</option>
 <option value="12">12 cuotas - $${doceCuotas}</option>
 <option value="24">24 cuotas - $${veinticuatroCuotas}</option>`;
 credit.style.opacity = "1";
-debit.style.opacity = "0.5"
+debit.style.opacity = "0.5";
 }
 
 function debits() {

@@ -154,12 +154,12 @@ class Color {
 const colores = [];
 
 colores.push(new Color("blanco", "#ffffff"));
-colores.push(new Color("rosa", "#DE89A8"));
-colores.push(new Color("rojo", "#F09494"));
-colores.push(new Color("naranja", "#F5C183"));
-colores.push(new Color("violeta", "#AE89DE"));
-colores.push(new Color("amarillo", "#EAE190"));
-colores.push(new Color("aleatorio", "#089f8f"));
+colores.push(new Color("rosa", "#f6d9d5"));
+colores.push(new Color("rojo", "#f49c92"));
+colores.push(new Color("naranja", "#efccbb"));
+colores.push(new Color("violeta", "#d8bbf2"));
+colores.push(new Color("amarillo", "#efebbb"));
+colores.push(new Color("aleatorio", "#daddce"));
 
 // CUENTA SOBRE BOTÓN DE CARRITO
 let cartButton = document.getElementById("cartButton");

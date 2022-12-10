@@ -60,7 +60,7 @@ florPrincipal.forEach((el) => {
 
     setTimeout(() => {
       seleccion.innerHTML = `
-    <img src="${el.img}">`;
+    <img src="${el.img}" alt="${el.nombre}">`;
 
     seleccion.style.opacity = 1;
 
@@ -169,7 +169,7 @@ florSecundaria.forEach((el) => {
 
     setTimeout(() => {
       seleccion2.innerHTML = `
-    <img src="${el.img}">`;
+    <img src="${el.img}" alt="${el.nombre}">`;
 
     seleccion2.style.opacity = 1;
 
@@ -208,6 +208,7 @@ colores.forEach((el) => {
   colorBoton.className = "settings__color--boton";
 
   colorBoton.style.backgroundColor = `${el.color}`;
+  colorBoton.title = `${el.nombre}`;
 
   settingsColor.appendChild(colorBoton);
 
@@ -279,7 +280,7 @@ let msj = document.getElementById("settings__msj--form");
 
 // CUENTA TOTAL
 let ramoTotal = 0;
-let ramo;
+let ramo = [];
 
 let settingsTotal = document.getElementById("settings__compra--total");
 settingsTotal.innerHTML = `
@@ -309,7 +310,7 @@ let settingsButton = document.getElementById("settings__compra--button");
 
 settingsButton.addEventListener("click", () => {
 
-  if(ramo[0], ramo[1], ramo[2]) {
+  if(ramo[0] && ramo[1] && ramo[2]) {
 
     Swal.fire({
       title: '¿Querés sumarlo al carrito?',

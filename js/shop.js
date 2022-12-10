@@ -91,54 +91,61 @@ perenneBtn.addEventListener("click", () => {
   exteriorBtn.style.backgroundColor = "transparent";
   todo.style.backgroundColor = "transparent";
 
-  //RENDER
-  storeGrid.innerHTML = "";
-  perenne.forEach((el) => {
-    let grid = document.createElement("div");
-    grid.className = "storeGrid__card";
-  
-    grid.innerHTML = `
-    <div class="storeGrid__img"><img src="../img/${el.img}">
-    </div>
-   <div class="storeGrid__info">
-   <p class="storeGrid__nombre">${el.nombre}</p>
-   <p class="storeGrid__precio">$${el.precio}</p>
-   </div>`;
+  storeGrid.innerHTML = `<img src="../img/process.gif">`;
+
+setTimeout(() => {
+    
+//RENDER
+storeGrid.innerHTML = ``;
+perenne.forEach((el) => {
+  let grid = document.createElement("div");
+  grid.className = "storeGrid__card";
+
+  grid.innerHTML = `
+  <div class="storeGrid__img"><img src="../img/${el.img}">
+  </div>
+ <div class="storeGrid__info">
+ <p class="storeGrid__nombre">${el.nombre}</p>
+ <p class="storeGrid__precio">$${el.precio}</p>
+ </div>`;
 
 
-    storeGrid.append(grid);
-  
-    let comprar = document.createElement("button");
-    comprar.innerHTML = `<span class="material-symbols-outlined">
-   favorite
-   </span>`;
-    comprar.className = "storeGrid__button";
-    grid.append(comprar);
-  
-    // FUNCIONALIDAD DEL BOTON
-    comprar.addEventListener("click", () => {
-      let foundShop = el.nombre;
-      console.log(foundShop)
-      const foundIn = carrito.find((el) => el.nombre === foundShop);
+  storeGrid.append(grid);
+
+  let comprar = document.createElement("button");
+  comprar.innerHTML = `<span class="material-symbols-outlined">
+ favorite
+ </span>`;
+  comprar.className = "storeGrid__button";
+  grid.append(comprar);
+
+  // FUNCIONALIDAD DEL BOTON
+  comprar.addEventListener("click", () => {
+    let foundShop = el.nombre;
+    console.log(foundShop)
+    const foundIn = carrito.find((el) => el.nombre === foundShop);
+    
+    if (foundIn) {
+    
+      foundIn.amount ++;
+      foundIn.precio = el.precio * foundIn.amount;
+      cart();
       
-      if (foundIn) {
-      
-        foundIn.amount ++;
-        foundIn.precio = el.precio * foundIn.amount;
-        cart();
-        
-      } else {
-        carrito.push({
-          nombre: el.nombre,
-          precio: el.precio,
-          img: el.img,
-          amount: 1
-        });
-        cart();
-      }
-      cuentaTotal.innerHTML = carrito.length;
-    });
-  })
+    } else {
+      carrito.push({
+        nombre: el.nombre,
+        precio: el.precio,
+        img: el.img,
+        amount: 1
+      });
+      cart();
+    }
+    cuentaTotal.innerHTML = carrito.length;
+  });
+})
+
+  }, 2000);
+
 });
 
 // ANUAL
@@ -153,55 +160,59 @@ anualBtn.addEventListener("click", () => {
     exteriorBtn.style.backgroundColor = "transparent";
     todo.style.backgroundColor = "transparent";
   
-    //RENDER
-  storeGrid.innerHTML = "";
-  anual.forEach((el) => {
-    let grid = document.createElement("div");
-    grid.className = "storeGrid__card";
-  
-    grid.innerHTML = `
-    <div class="storeGrid__img"><img src="../img/${el.img}">
-   </div>
-   <div class="storeGrid__info">
-   <p class="storeGrid__nombre">${el.nombre}</p>
-   <p class="storeGrid__precio">$${el.precio}</p>
-   </div>`;
-
-
-    storeGrid.append(grid);
-  
-    let comprar = document.createElement("button");
-    comprar.innerHTML = `<span class="material-symbols-outlined">
-   favorite
-   </span>`;
-    comprar.className = "storeGrid__button";
-    grid.append(comprar);
-  
-    // FUNCIONALIDAD DEL BOTON
-    comprar.addEventListener("click", () => {
-      let foundShop = el.nombre;
-console.log(foundShop)
-const foundIn = carrito.find((el) => el.nombre === foundShop);
-
-if (foundIn) {
-
-  foundIn.amount ++;
-  foundIn.precio = el.precio * foundIn.amount;
-  cart();
-  
-} else {
-  carrito.push({
-    nombre: el.nombre,
-    precio: el.precio,
-    img: el.img,
-    amount: 1
-  });
-  cart();
-}
-      cart();
-      cuentaTotal.innerHTML = carrito.length;
-    });
-  })
+    storeGrid.innerHTML = `<img src="../img/process.gif">`;
+    setTimeout(() => {
+    
+      //RENDER
+      storeGrid.innerHTML = ``;
+      anual.forEach((el) => {
+        let grid = document.createElement("div");
+        grid.className = "storeGrid__card";
+      
+        grid.innerHTML = `
+        <div class="storeGrid__img"><img src="../img/${el.img}">
+        </div>
+       <div class="storeGrid__info">
+       <p class="storeGrid__nombre">${el.nombre}</p>
+       <p class="storeGrid__precio">$${el.precio}</p>
+       </div>`;
+      
+      
+        storeGrid.append(grid);
+      
+        let comprar = document.createElement("button");
+        comprar.innerHTML = `<span class="material-symbols-outlined">
+       favorite
+       </span>`;
+        comprar.className = "storeGrid__button";
+        grid.append(comprar);
+      
+        // FUNCIONALIDAD DEL BOTON
+        comprar.addEventListener("click", () => {
+          let foundShop = el.nombre;
+          console.log(foundShop)
+          const foundIn = carrito.find((el) => el.nombre === foundShop);
+          
+          if (foundIn) {
+          
+            foundIn.amount ++;
+            foundIn.precio = el.precio * foundIn.amount;
+            cart();
+            
+          } else {
+            carrito.push({
+              nombre: el.nombre,
+              precio: el.precio,
+              img: el.img,
+              amount: 1
+            });
+            cart();
+          }
+          cuentaTotal.innerHTML = carrito.length;
+        });
+      })
+      
+        }, 2000);
 });
 
 // INTERIOR 
@@ -219,50 +230,62 @@ interiorBtn.addEventListener("click", () => {
   //RENDER
   storeGrid.innerHTML = "";
   interior.forEach((el) => {
-    let grid = document.createElement("div");
-    grid.className = "storeGrid__card";
-  
-    grid.innerHTML = `
-    <div class="storeGrid__img"><img src="../img/${el.img}">
-    </div>
-   <div class="storeGrid__info">
-   <p class="storeGrid__nombre">${el.nombre}</p>
-   <p class="storeGrid__precio">$${el.precio}</p>
-   </div>`;
+   
+    storeGrid.innerHTML = `<img src="../img/process.gif">`;
+setTimeout(() => {
+    
+      //RENDER
+      storeGrid.innerHTML = ``;
+      interior.forEach((el) => {
+        let grid = document.createElement("div");
+        grid.className = "storeGrid__card";
+      
+        grid.innerHTML = `
+        <div class="storeGrid__img"><img src="../img/${el.img}">
+        </div>
+       <div class="storeGrid__info">
+       <p class="storeGrid__nombre">${el.nombre}</p>
+       <p class="storeGrid__precio">$${el.precio}</p>
+       </div>`;
+      
+      
+        storeGrid.append(grid);
+      
+        let comprar = document.createElement("button");
+        comprar.innerHTML = `<span class="material-symbols-outlined">
+       favorite
+       </span>`;
+        comprar.className = "storeGrid__button";
+        grid.append(comprar);
+      
+        // FUNCIONALIDAD DEL BOTON
+        comprar.addEventListener("click", () => {
+          let foundShop = el.nombre;
+          console.log(foundShop)
+          const foundIn = carrito.find((el) => el.nombre === foundShop);
+          
+          if (foundIn) {
+          
+            foundIn.amount ++;
+            foundIn.precio = el.precio * foundIn.amount;
+            cart();
+            
+          } else {
+            carrito.push({
+              nombre: el.nombre,
+              precio: el.precio,
+              img: el.img,
+              amount: 1
+            });
+            cart();
+          }
+          cuentaTotal.innerHTML = carrito.length;
+        });
+      })
+      
+        }, 2000);
 
 
-    storeGrid.append(grid);
-  
-    let comprar = document.createElement("button");
-    comprar.innerHTML = `<span class="material-symbols-outlined">
-   favorite
-   </span>`;
-    comprar.className = "storeGrid__button";
-    grid.append(comprar);
-  
-    // FUNCIONALIDAD DEL BOTON
-    comprar.addEventListener("click", () => {
-      let foundShop = el.nombre;
-console.log(foundShop)
-const foundIn = carrito.find((el) => el.nombre === foundShop);
-
-if (foundIn) {
-
-  foundIn.amount ++;
-  foundIn.precio = el.precio * foundIn.amount;
-  cart();
-  
-} else {
-  carrito.push({
-    nombre: el.nombre,
-    precio: el.precio,
-    img: el.img,
-    amount: 1
-  });
-  cart();
-}
-      cuentaTotal.innerHTML = carrito.length;
-    });
   })
 });
 
@@ -280,53 +303,59 @@ exteriorBtn.addEventListener("click", () => {
   todo.style.backgroundColor = "transparent";
 
   //RENDER
-  storeGrid.innerHTML = "";
-  exterior.forEach((el) => {
-    let grid = document.createElement("div");
-    grid.className = "storeGrid__card";
-  
-    grid.innerHTML = `
-    <div class="storeGrid__img"><img src="../img/${el.img}">
-    </div>
-   <div class="storeGrid__info">
-   <p class="storeGrid__nombre">${el.nombre}</p>
-   <p class="storeGrid__precio">$${el.precio}</p>
-   </div>`;
-
-
-    storeGrid.append(grid);
-  
-    let comprar = document.createElement("button");
-    comprar.innerHTML = `<span class="material-symbols-outlined">
-   favorite
-   </span>`;
-    comprar.className = "storeGrid__button";
-    grid.append(comprar);
-  
-    // FUNCIONALIDAD DEL BOTON
-    comprar.addEventListener("click", () => {
-      let foundShop = el.nombre;
-      console.log(foundShop)
-      const foundIn = carrito.find((el) => el.nombre === foundShop);
+  storeGrid.innerHTML = `<img src="../img/process.gif">`;
+setTimeout(() => {
+    
+      //RENDER
+      storeGrid.innerHTML = ``;
+      exterior.forEach((el) => {
+        let grid = document.createElement("div");
+        grid.className = "storeGrid__card";
       
-      if (foundIn) {
+        grid.innerHTML = `
+        <div class="storeGrid__img"><img src="../img/${el.img}">
+        </div>
+       <div class="storeGrid__info">
+       <p class="storeGrid__nombre">${el.nombre}</p>
+       <p class="storeGrid__precio">$${el.precio}</p>
+       </div>`;
       
-        foundIn.amount ++;
-        foundIn.precio = el.precio * foundIn.amount;
-        cart();
-        
-      } else {
-        carrito.push({
-          nombre: el.nombre,
-          precio: el.precio,
-          img: el.img,
-          amount: 1
+      
+        storeGrid.append(grid);
+      
+        let comprar = document.createElement("button");
+        comprar.innerHTML = `<span class="material-symbols-outlined">
+       favorite
+       </span>`;
+        comprar.className = "storeGrid__button";
+        grid.append(comprar);
+      
+        // FUNCIONALIDAD DEL BOTON
+        comprar.addEventListener("click", () => {
+          let foundShop = el.nombre;
+          console.log(foundShop)
+          const foundIn = carrito.find((el) => el.nombre === foundShop);
+          
+          if (foundIn) {
+          
+            foundIn.amount ++;
+            foundIn.precio = el.precio * foundIn.amount;
+            cart();
+            
+          } else {
+            carrito.push({
+              nombre: el.nombre,
+              precio: el.precio,
+              img: el.img,
+              amount: 1
+            });
+            cart();
+          }
+          cuentaTotal.innerHTML = carrito.length;
         });
-        cart();
-      }
-      cuentaTotal.innerHTML = carrito.length;
-    });
-  })
+      })
+      
+        }, 2000);
 });
 
 // TODO
@@ -342,57 +371,61 @@ todo.addEventListener("click", () => {
   todo.style.backgroundColor = "#bccac7";
 
   //RENDER
-  storeGrid.innerHTML = "";
-  shop.forEach((el) => {
-  
-    // STORE CONTENT
-  
-    let grid = document.createElement("div");
-    grid.className = "storeGrid__card";
-  
-    grid.innerHTML = `
-    <div class="storeGrid__img"><img src="../img/${el.img}">
-    </div>
-   <div class="storeGrid__info">
-   <p class="storeGrid__nombre">${el.nombre}</p>
-   <p class="storeGrid__precio">$${el.precio}</p>
-   </div>`;
-  
+
+  storeGrid.innerHTML = `<img src="../img/process.gif">`;
+    setTimeout(() => {
     
-    storeGrid.append(grid);
-  
-    let comprar = document.createElement("button");
-    comprar.innerHTML = `<span class="material-symbols-outlined">
-   favorite
-   </span>`;
-    comprar.className = "storeGrid__button";
-    grid.append(comprar);
-  
-    // FUNCIONALIDAD DEL BOTON
-    comprar.addEventListener("click", () => {
-      let foundShop = el.nombre;
-console.log(foundShop)
-const foundIn = carrito.find((el) => el.nombre === foundShop);
-
-if (foundIn) {
-
-  foundIn.amount ++;
-  foundIn.precio = el.precio * foundIn.amount;
-  cart();
-  
-} else {
-  carrito.push({
-    nombre: el.nombre,
-    precio: el.precio,
-    img: el.img,
-    amount: 1
-  });
-  cart();
-}
-      cuentaTotal.innerHTML = carrito.length;
-    });
-  });
-})
+      //RENDER
+      storeGrid.innerHTML = ``;
+      shop.forEach((el) => {
+        let grid = document.createElement("div");
+        grid.className = "storeGrid__card";
+      
+        grid.innerHTML = `
+        <div class="storeGrid__img"><img src="../img/${el.img}">
+        </div>
+       <div class="storeGrid__info">
+       <p class="storeGrid__nombre">${el.nombre}</p>
+       <p class="storeGrid__precio">$${el.precio}</p>
+       </div>`;
+      
+      
+        storeGrid.append(grid);
+      
+        let comprar = document.createElement("button");
+        comprar.innerHTML = `<span class="material-symbols-outlined">
+       favorite
+       </span>`;
+        comprar.className = "storeGrid__button";
+        grid.append(comprar);
+      
+        // FUNCIONALIDAD DEL BOTON
+        comprar.addEventListener("click", () => {
+          let foundShop = el.nombre;
+          console.log(foundShop)
+          const foundIn = carrito.find((el) => el.nombre === foundShop);
+          
+          if (foundIn) {
+          
+            foundIn.amount ++;
+            foundIn.precio = el.precio * foundIn.amount;
+            cart();
+            
+          } else {
+            carrito.push({
+              nombre: el.nombre,
+              precio: el.precio,
+              img: el.img,
+              amount: 1
+            });
+            cart();
+          }
+          cuentaTotal.innerHTML = carrito.length;
+        });
+      })
+      
+        }, 2000);
+  })
    });
 
 

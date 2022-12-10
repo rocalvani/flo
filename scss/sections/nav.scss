@@ -1,0 +1,49 @@
+.header {
+    font-size: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.253);
+    border-bottom: 1px solid white;
+    padding: 0;
+    img {
+      height: 2rem;
+    }
+    &__button {
+      margin-right: 6rem;
+      border-radius: 100%;
+      width: 2rem;
+      height: 2rem;
+      text-align: center;
+    }
+  }
+
+
+.nav-link {
+    text-transform:uppercase;
+    font-size: 0.8rem;
+}
+
+
+#cartButton {
+    position: relative;
+    border:0;
+    background-color: transparent;
+    p {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: #c6172b;
+      aspect-ratio: 1/1;
+      padding: 0.3vh 0.7vh 0.2vh 0.7vh;
+      font-size: 1.1vh;
+      color: white;
+      border-radius: 100%;
+    }
+  }
+  .navbar-brand {
+    padding: 1rem 5rem;
+  }

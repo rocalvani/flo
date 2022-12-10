@@ -1,5 +1,7 @@
 [
-    {"nombre": "Amapola", "precio": 1750, "tipo": "perenne", "lugar": "exterior", "id": 17, "img": "flores-17.png" },
+    {"nombre": "Amapola", "precio": 1700, "tipo": "perenne", "lugar": "exterior", "id": 17, "img": "flores-17.png" },
     {"nombre": "Cerezo", "precio": 6800, "tipo": "perenne", "lugar": "exterior", "id": 18, "img": "flores-18.png" },
-    {"nombre": "Olivo", "precio": 3160, "tipo": "perenne", "lugar": "exterior", "id": 19, "img": "flores-19.png" }
+    {"nombre": "Reina de la noche", "precio": 3600, "tipo": "perenne", "lugar": "exterior", "id": 19, "img": "flores-19.png" },
+    {"nombre": "Rosa", "precio": 2500, "tipo": "perenne", "lugar": "exterior", "id": 20, "img": "flores-21.png" },
+    {"nombre": "Peonías", "precio": 1800, "tipo": "perenne", "lugar": "exterior", "id": 21, "img": "flores-22.png" }
 ]
