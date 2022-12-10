@@ -323,7 +323,7 @@ settingsButton.addEventListener("click", () => {
         Swal.fire('listo!', '', 'success')
         const ramoCarrito = {
           nombre : "ramo personalizado",
-          img : "https://i.pinimg.com/originals/c5/33/81/c53381a8780246c8f7b532be95d4610e.jpg",
+          img : "flores-20.png",
           precio : parseInt((ramo.reduce((acc, el) => acc + el.precio, 0) + cantidadTotal) * 1.21),
           flores :[ramo[0].nombre, ramo[1].nombre],
           mensaje: msj.value,
