@@ -74,9 +74,7 @@ florPrincipal.forEach((el) => {
     });
 
     // ELIMINAR FLORES EXTRA
-    if (ramoPrincipal.length == 2) {
-      ramoPrincipal.shift();
-    };
+  ramoPrincipal.length == 2 && ramoPrincipal.shift();
 
     ramoCompleto();
 
@@ -183,9 +181,7 @@ florSecundaria.forEach((el) => {
       });
 
       // ELIMINAR FLORES EXTRA
-      if (ramoSecundario.length == 2) {
-        ramoSecundario.shift();
-      };
+      ramoSecundario.length == 2 && ramoSecundario.shift();
 
       ramoCompleto();
 
@@ -244,9 +240,7 @@ colores.forEach((el) => {
     });
 
     // ELIMINAR FLORES EXTRA
-    if (detail.length == 2) {
-      detail.shift();
-    };
+    detail.length == 2 && detail.shift();
   })
 
 })
@@ -255,25 +249,14 @@ colores.forEach((el) => {
 var textArea = document.querySelector("#settings__text");
 var textAreaBtn = document.querySelector("#settings__btn");
 
-if (textArea.className == "settings__text settings__text--off") {
-  setTimeout(() => {
-    textArea.style.display = "none";
-  }, 500);
-}
+textArea.className == "settings__text settings__text--off" ? setTimeout(() => { textArea.style.display = "none"; }, 500) : textArea.style.display = "block";
 
 textAreaBtn.onclick = () => {
   textArea.classList.toggle("settings__text--on");
   textArea.classList.toggle("settings__text--off");
-  
-  if (textArea.className == "settings__text settings__text--off") {
-    setTimeout(() => {
-      textArea.style.display = "none";
-    }, 600);
-    textAreaBtn.style.backgroundColor = "";
-  } else {
-    textArea.style.display = "block"; 
-    textAreaBtn.style.backgroundColor = "white";
-  }
+
+  textArea.className == "settings__text settings__text--off" ? setTimeout(() => { textArea.style.display = "none"; }, 500) : textArea.style.display = "block";
+textArea.className == "settings__text settings__text--off" ? textAreaBtn.style.backgroundColor = "" : textAreaBtn.style.backgroundColor = "white";
 }
 
 let msj = document.getElementById("settings__msj--form");

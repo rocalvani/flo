@@ -242,6 +242,7 @@ let veinticuatroCuotas = parseInt(final/24);
 debit.style.opacity = "0.5";
 credit.style.opacity = "0.5";
 
+
 function credits() {
   selection.innerHTML = `
 <option value="6">6 cuotas - $${seisCuotas}</option>
@@ -295,9 +296,9 @@ function validate(e) {
 
 if (name.value === "" || lastName.value === "" || id.value === "" || number.value === "" || security.value === "") {
 
-  required.innerHTML = `<img src="../img/process.gif">`;
+  required.innerHTML = `<img src="../img/process.gif" width="100%">`;
   setTimeout(() => {
-    required.innerHTML = `Recordá completar todos los datos requeridos para poder avanzar.`;
+    required.innerHTML = `Recordá completar <b>todos los datos marcados con un asterisco</b> para poder avanzar.`;
   }, 2000)
 } else {
   swal({

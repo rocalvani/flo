@@ -15,15 +15,13 @@ export {
   Color,
   colores,
   compra,
-
 };
 
-import {cart} from "./cart.js";
+import { cart } from "./cart.js";
 
 // BÁSICOS
 const compra = (clave, valor) => localStorage.setItem(clave, valor);
 let carrito = JSON.parse(localStorage.getItem("listaProductos")) || [];
-
 
 // PRODUCTOS STORE
 class Planta {
@@ -42,14 +40,7 @@ class Planta {
 
 const plantas = [];
 plantas.push(
-  new Planta(
-    "peperomia pilea",
-    1100,
-    "perenne",
-    "interior",
-    1,
-    "flores-01.png"
-  )
+  new Planta("peperomia pilea", 1100, "perenne", "interior", 1, "flores-01.png")
 );
 plantas.push(
   new Planta("fittonia", 1100, "perenne", "interior", 2, "flores-06.png")
@@ -64,14 +55,7 @@ plantas.push(
   new Planta("begonia", 2600, "perenne", "interior", 5, "flores-03.png")
 );
 plantas.push(
-  new Planta(
-    "violeta africana",
-    980,
-    "perenne",
-    "interior",
-    6,
-    "flores-04.png"
-  )
+  new Planta("violeta africana", 980, "perenne", "interior", 6, "flores-04.png")
 );
 plantas.push(
   new Planta("lavanda", 190, "perenne", "exterior", 7, "flores-07.png")
@@ -92,14 +76,7 @@ plantas.push(
   new Planta("manzanilla", 210, "anual", "exterior", 12, "flores-10.png")
 );
 plantas.push(
-  new Planta(
-    "agapanthus",
-    790,
-    "perenne",
-    "exterior",
-    13,
-    "flores-14.png"
-  )
+  new Planta("agapanthus", 790, "perenne", "exterior", 13, "flores-14.png")
 );
 plantas.push(
   new Planta("frutilla", 190, "perenne", "exterior", 14, "flores-13.png")
@@ -108,14 +85,7 @@ plantas.push(
   new Planta("naranjo", 1500, "perenne", "exterior", 15, "flores-16.png")
 );
 plantas.push(
-  new Planta(
-    "suculentas",
-    1200,
-    "perenne",
-    "exterior",
-    16,
-    "flores-15.png"
-  )
+  new Planta("suculentas", 1200, "perenne", "exterior", 16, "flores-15.png")
 );
 
 // FLORES PARA RAMO
@@ -188,7 +158,7 @@ function eliminarProducto(product) {
   carrito = exist;
   cart();
   cuentaTotal.innerHTML = carrito.length;
-};
+}
 
 // CIERRE DE ASIDE
 
@@ -198,4 +168,4 @@ function cerrado() {
   setTimeout(() => {
     aside.className = "asideCart--closed";
   }, 500);
-};
+}

@@ -3,7 +3,7 @@
 // IMPORT
 
 import {aside, plantas, carrito,cerrado, cuentaTotal, eliminarProducto} from './script.js';
-import { cart} from "./cartShop.js"
+import { cart} from "./cart.js"
 
 let storeGrid = document.getElementById("store__grid");
 

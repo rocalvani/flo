@@ -47,7 +47,7 @@ function cart() {
       let cartList = document.createElement("div");
       cartList.className = "asideCart__list";
       cartList.innerHTML = `
-    <div class="asideCart__img"><img src="./img/${el.img}"></div>
+    <div class="asideCart__img"><img src="../img/${el.img}"></div>
     <div class="asideCart__info">
     <p>${el.nombre}</p>
     <h3>$${el.precio}</h3>
