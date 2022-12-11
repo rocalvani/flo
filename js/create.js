@@ -305,12 +305,16 @@ settingsButton.addEventListener("click", () => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         Swal.fire('listo!', '', 'success');
+
+        // BUSQUEDA PARA EVITAR REPETICIÓN
         
         let bouquet = carrito.find((el) => el.nombre == "ramo de " + ramo[0].nombre +"s x " + cantidad);
         if (bouquet) {
           bouquet.amount ++;
           bouquet.precio = bouquet.precio * bouquet.amount;
         } else {
+
+          // SI NO ESTÁ VA COMO NUEVO
 
         const ramoCarrito = {
           nombre : "ramo de " + ramo[0].nombre +"s x " + cantidad,

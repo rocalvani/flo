@@ -54,6 +54,7 @@ const listed = () => {
   })
 }
 
+// RENDER 
 let loadedCart = []
 
 const render = (arr) => {
@@ -72,6 +73,8 @@ const render = (arr) => {
       </div>
       `;
     checkoutList.append(checkoutEl);
+
+    // CANTIDAD
 
     let counter = document.createElement("div");
     counter.className ="checkout__el--counter"
@@ -290,7 +293,7 @@ if (name.value != "" && lastName.value != "" && id.value != "" && number.value !
   });
 })
 
-
+//VALIDACIÓN DE DATOS
 
 function validate(e) {
 

@@ -68,6 +68,8 @@ function cart() {
         eliminarProducto(el);
       });
     });
+
+    // MUESTRA DEL TOTAL
   
     let asideTotal = document.createElement("div");
     asideTotal.className = "asideCart__total";
@@ -79,6 +81,7 @@ function cart() {
 <b>$${total}</b>
     `;
   
+    // BOTÓN PARA AVANZAR A CHECKOUT
     let botonComprar = document.createElement("div");
     botonComprar.className = "asideCart__comprar";
     cartOpen.appendChild(botonComprar);
