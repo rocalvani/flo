@@ -304,9 +304,16 @@ settingsButton.addEventListener("click", () => {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        Swal.fire('listo!', '', 'success')
+        Swal.fire('listo!', '', 'success');
+        
+        let bouquet = carrito.find((el) => el.nombre == "ramo de " + ramo[0].nombre +"s x " + cantidad);
+        if (bouquet) {
+          bouquet.amount ++;
+          bouquet.precio = bouquet.precio * bouquet.amount;
+        } else {
+
         const ramoCarrito = {
-          nombre : "ramo personalizado",
+          nombre : "ramo de " + ramo[0].nombre +"s x " + cantidad,
           img : "flores-20.png",
           precio : parseInt((ramo.reduce((acc, el) => acc + el.precio, 0) + cantidadTotal) * 1.21),
           flores :[ramo[0].nombre, ramo[1].nombre],
@@ -316,7 +323,7 @@ settingsButton.addEventListener("click", () => {
           amount: 1,
         }
       
-      carrito.push(ramoCarrito);
+      carrito.push(ramoCarrito);}
       
       cart();
       

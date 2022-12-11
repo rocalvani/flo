@@ -1,5 +1,5 @@
 //IMPORT Y EXPORT
-import {carrito, compra, eliminarProducto} from "./script.js"
+import {carrito, compra,cuentaTotal} from "./script.js"
 export {cart,};
 
 // ASIDE DE CARRITO
@@ -47,7 +47,7 @@ function cart() {
       let cartList = document.createElement("div");
       cartList.className = "asideCart__list";
       cartList.innerHTML = `
-    <div class="asideCart__img"><img src="./img/${el.img}"></div>
+    <div class="asideCart__img"><img src="../img/${el.img}"></div>
     <div class="asideCart__info">
     <p>${el.nombre}</p>
     <h3>$${el.precio}</h3>
@@ -65,7 +65,7 @@ function cart() {
       cartList.append(minus);
   
       minus.addEventListener("click", function () {
-        eliminarProducto(el);
+        eliminarProductoShop(el);
       });
     });
   
@@ -84,7 +84,7 @@ function cart() {
     cartOpen.appendChild(botonComprar);
   
     botonComprar.innerHTML = `
-    <a href="./pages/checkout.html"><button class="asideCart__llevar">comprar</button></a>
+    <a href="./checkout.html"><button class="asideCart__llevar">comprar</button></a>
     `;
   
     // STORAGE

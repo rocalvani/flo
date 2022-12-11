@@ -15,10 +15,11 @@ import {cart} from "./cart.js";
 
 let cantidad = 1;
 
-fetch("./json/data.json")
-  .then((res) => res.json())
-  .then((data) => {
-    data.forEach((el) => {
+  const recoverData = async () => {
+    const resp = await fetch("./json/data.json");
+    const newIn = await resp.json();
+
+    newIn.forEach((el) => {
       // SUMAR IVA
       el.precio = el.precio * 1.21;
       //MOSTRAR
@@ -72,4 +73,6 @@ fetch("./json/data.json")
         cuentaTotal.innerHTML = carrito.length;
       });
     });
-  });
+  }
+
+  recoverData();
